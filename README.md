@@ -35,8 +35,6 @@ In this section, you should mention all of the languages, frameworks, libraries,
     - The logic for this project is written in **Python**.
 - [Flask](http://flask.pocoo.org/)
     - The project uses the **Flask** microframework to make the code more elegant. 
-- [Start Bootstrap](https://startbootstrap.com/)
-    - The **Creative** theme from **Start Bootstrap** is used to style the page elements. 
 
 
 ## Testing
@@ -77,7 +75,7 @@ In addition, if it is not obvious, you should also describe how to run your code
 - The riddles are from the [Riddle Solution Answer Database](https://riddle.solutions/).
 
 ### Media
-- The photos used in this site were obtained from ...
+- The background image is a free stock image from [Pixabay](https://pixabay.com/).
 
 ### Acknowledgements
 
