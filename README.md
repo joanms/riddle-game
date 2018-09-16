@@ -33,6 +33,10 @@ In this section, you should mention all of the languages, frameworks, libraries,
 
 - [Python](https://www.python.org/)
     - The logic for this project is written in **Python**.
+- [Flask](http://flask.pocoo.org/)
+    - The project uses the **Flask** microframework to make the code more elegant. 
+- [Start Bootstrap](https://startbootstrap.com/)
+    - The **Creative** theme from **Start Bootstrap** is used to style the page elements. 
 
 
 ## Testing
