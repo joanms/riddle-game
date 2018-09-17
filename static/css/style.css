@@ -44,11 +44,18 @@ h2 {
     text-align: center;
 }
 
-.header {
+.header-elements {
     background-color: #FD3A0F;
     color: #091834;
 }
 
 .navbar {
     float: right;
+}
+
+.menuitem {
+    font-family: Oswald;
+    font-weight: 400;
+    font-size: 30px;
+    color: #091834;
 }

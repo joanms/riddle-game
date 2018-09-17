@@ -12,6 +12,11 @@ def index():
 def play():
     return render_template("play.html")
 
+@app.route('/leaderboard')
+def leaderboard():
+    return render_template("leaderboard.html")
+    
+
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
