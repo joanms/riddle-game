@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css?family=Mystery+Quest:400|Montserrat:400');
+
+/*Colours
+#E1D4F7 Lilac
+#5A18C9 Violet
+#FDDC22 Gold
+#B89F14 Mustard
+#342E09 Dark brown*/
+
+.main-content {
+    min-height: 80vh;
+/*Code for the background image is from https://css-tricks.com/perfect-full-page-background-image/*/
+    background: url("../images/maze-2264.jpg") no-repeat center center fixed; 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    position: relative;
+}
+
+.text-box {
+    background-color: #B89F14;
+    color: #342E09;
+    width: 1000px;
+    height: 500px;
+    padding: 20px;
+}
+
+h1 {
+    font-family: "Mystery Quest", cursive;
+    font-size: 100px;
+    text-align: center
+}
+
