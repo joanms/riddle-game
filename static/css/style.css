@@ -1,16 +1,13 @@
 @import url('https://fonts.googleapis.com/css?family=Mystery+Quest:400|Montserrat:400');
 
 /*Colours
-#E1D4F7 Lilac
-#5A18C9 Violet
-#FDDC22 Gold
-#B89F14 Mustard
-#342E09 Dark brown*/
+#FD3A0F Orange
+#091834 Dark Blue*/
 
 .main-content {
     min-height: 80vh;
 /*Code for the background image is from https://css-tricks.com/perfect-full-page-background-image/*/
-    background: url("../images/maze-2264.jpg") no-repeat center center fixed; 
+    background: url("../images/riddle-background.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -22,16 +19,35 @@
 }
 
 .text-box {
-    background-color: #B89F14;
-    color: #342E09;
+    background-color: rgba(253, 58, 15, 0.9);
+    color: #091834;
+    opacity: 0.8;
+    filter: alpha(opacity=80); /* For IE8 and earlier */
     width: 1000px;
     height: 500px;
     padding: 20px;
 }
 
+.title {
+    text-align: center;
+}
+
 h1 {
     font-family: "Mystery Quest", cursive;
     font-size: 100px;
-    text-align: center
 }
 
+h2 {
+    font-family: Montserrat;
+    font-size: 50px;
+    text-align: center;
+}
+
+.header {
+    background-color: #FD3A0F;
+    color: #091834;
+}
+
+.navbar {
+    float: right;
+}

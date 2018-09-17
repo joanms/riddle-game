@@ -10,16 +10,25 @@
 
 <div class="header">
     <body>
-        <nav class="navbar">
-            <ul>
-                <li><a href="{{ url_for('index') }}">Home</a></li>
-                <li><a href="{{ url_for('play') }}">Play</a></li>
-            </ul>
-        </nav>
+    <div class="container-fluid header">
+        <div class="row">
+            <div class="col-sm-12 col-md-1 navbar">
+                <nav>
+                    <ul>
+                        <li><a href="{{ url_for('index') }}">Home</a></li>
+                        <li><a href="{{ url_for('play') }}">Play</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="col-sm-12 col-md-11 title">
+                <h1>Riddle Me This</h1>
+            </div>
+        </div>
+    </div>    
 </div>
         {% block content %} {% endblock %}
 
         
     </body>
-
+</div>
 </html>
