@@ -32,6 +32,10 @@
     text-align: center;
 }
 
+a {
+color: #091834;
+}
+
 h1 {
     font-family: "Lobster", cursive;
     font-size: 100px;
@@ -53,9 +57,10 @@ h2 {
     float: right;
 }
 
-.menuitem {
+.menuitem a {
     font-family: Oswald;
     font-weight: 400;
     font-size: 30px;
     color: #091834;
+    text-decoration: none;
 }
