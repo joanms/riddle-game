@@ -21,7 +21,6 @@
 .text-box {
     background-color: rgba(253, 58, 15, 0.9);
     color: #091834;
-    opacity: 0.8;
     filter: alpha(opacity=80); /* For IE8 and earlier */
     width: 1000px;
     height: 500px;
@@ -32,8 +31,12 @@
     text-align: center;
 }
 
-a {
+.menuitem a {
 color: #091834;
+}
+
+.menuitem a:hover {
+    color: #183BF0;
 }
 
 h1 {
