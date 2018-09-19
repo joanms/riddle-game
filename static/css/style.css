@@ -44,7 +44,8 @@ h2 {
 }
 
 .header-elements {
-    background-color: #B89F14;
+    background-color: #b89f14;
+    background-image: url("../images/maze-black.png");
     color: #342E09;
 }
 

@@ -75,7 +75,8 @@ In addition, if it is not obvious, you should also describe how to run your code
 - The riddles are from the [Riddle Solution Answer Database](https://riddle.solutions/).
 
 ### Media
-- The background image is a free stock image from [Pixabay](https://pixabay.com/).
+- The background texture in the header is from [Subtle Patterns](https://www.toptal.com/designers/subtlepatterns/maze-black/).
+- The main background image is a free stock image from [Pixabay](https://pixabay.com/).
 
 ### Acknowledgements
 
