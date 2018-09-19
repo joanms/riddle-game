@@ -31,14 +31,6 @@
     text-align: center;
 }
 
-.menuitem a {
-color: #091834;
-}
-
-.menuitem a:hover {
-    color: #183BF0;
-}
-
 h1 {
     font-family: "Lobster", cursive;
     font-size: 100px;
@@ -60,10 +52,17 @@ h2 {
     float: right;
 }
 
-.menuitem a {
-    font-family: Oswald;
+.menuitem {
+    font-family: "Oswald", sans-serif;
     font-weight: 400;
-    font-size: 30px;
+    font-size: 25px;
     color: #091834;
+}
+
+.menuitem a {
     text-decoration: none;
+}
+
+.menuitem a:hover {
+    color: #183BF0;
 }
