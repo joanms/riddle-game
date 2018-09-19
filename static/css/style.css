@@ -1,13 +1,14 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster|Oswald:400,700');
 
 /*Colours
-#FD3A0F Orange
-#091834 Dark Blue*/
+#FD4D0C Orange
+#0247FE Royal Blue
+#091534 Dark Blue*/
 
 .main-content {
-    min-height:100vh;
+    min-height:90vh;
 /*Code for the background image is from https://css-tricks.com/perfect-full-page-background-image/*/
-    background: url("../images/riddle-background.jpg") no-repeat center center fixed; 
+    background: url("../images/maze-2264.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -19,9 +20,8 @@
 }
 
 .text-box {
-    background-color: rgba(253, 58, 15, 0.9);
-    color: #091834;
-    filter: alpha(opacity=80); /* For IE8 and earlier */
+    background-color: rgba(184, 170, 20, 0.7);
+    color: #342E09;
     width: 1000px;
     height: 500px;
     padding: 20px;
@@ -44,19 +44,19 @@ h2 {
 }
 
 .header-elements {
-    background-color: #FD3A0F;
-    color: #091834;
+    background-color: #B89F14;
+    color: #342E09;
 }
 
 .navbar {
-    float: right;
+    text-align: left;
 }
 
 .menuitem {
     font-family: "Oswald", sans-serif;
     font-weight: 400;
     font-size: 25px;
-    color: #091834;
+    color: #342E09;
 }
 
 .menuitem a {
@@ -64,5 +64,6 @@ h2 {
 }
 
 .menuitem a:hover {
-    color: #183BF0;
+    text-decoration: none;
+    color: #5A18C9;
 }
