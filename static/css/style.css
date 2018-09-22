@@ -6,7 +6,7 @@
 #091534 Dark Blue*/
 
 .main-content {
-    min-height:90vh;
+    min-height:100vh;
 /*Code for the background image is from https://css-tricks.com/perfect-full-page-background-image/*/
     background: url("../images/maze-2264.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -18,6 +18,17 @@
     justify-content: space-around;
     position: relative;
 }
+
+/*#bg {*/
+/*  position: fixed; */
+/*  top: 0; */
+/*  left: 0; */
+	
+  /* Preserve aspet ratio */
+/*  min-width: 100%;*/
+/*  min-height: 100%;*/
+/*}*/
+
 
 .text-box {
     background-color: rgba(184, 170, 20, 0.7);
