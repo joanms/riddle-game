@@ -9,7 +9,7 @@ body {
 }
 
 .main-content {
-    min-height:100vh;
+    height:100%;
 /*Code for the background image is from https://css-tricks.com/perfect-full-page-background-image/*/
     background: url("../images/maze-2264.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
@@ -18,7 +18,7 @@ body {
     background-size: cover;
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: center;
     position: relative;
 }
 
@@ -28,7 +28,10 @@ body {
     width: 50vw;
     height: 50vh;
     padding: 20px;
-    position: absolute;
+    position: fixed;
+        top: 60%;
+    transform: translateY(-60%);
+
 }
 
 .title {
