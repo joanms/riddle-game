@@ -29,7 +29,7 @@ body {
     height: 50vh;
     padding: 20px;
     position: fixed;
-        top: 60%;
+    top: 60%;
     transform: translateY(-60%);
 
 }
@@ -74,4 +74,21 @@ h2 {
 .menuitem a:hover {
     text-decoration: none;
     color: #5A18C9;
+}
+
+
+/*Media Queries*/
+
+@media(max-width: 1050px) {
+    h1 {
+        font-size: 50px;
+    }
+    
+    h2 {
+        font-size: 20px;
+    }
+    
+    .menuitem {
+        font-size: 12px;
+    }
 }
