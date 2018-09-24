@@ -85,6 +85,11 @@ h2 {
     }
     
     .menuitem {
-        font-size: 12px;
+        font-size: 15px;
+    }
+    
+    .navbar {
+    display: inline-block;    
+    text-align: center;
     }
 }
