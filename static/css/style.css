@@ -98,5 +98,6 @@ h2 {
 @media(max-width: 767px) {
     .navbar {
     text-align: center;
+    font-size: 12px;
     }
 }
