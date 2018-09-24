@@ -60,6 +60,7 @@ h2 {
     font-family: "Oswald", sans-serif;
     font-weight: 400;
     font-size: 25px;
+    display: inline-block;
     color: #342E09;
 }
 
@@ -75,7 +76,7 @@ h2 {
 
 /*Media Queries*/
 
-@media(max-width: 700px) {
+@media(max-width: 1050px) {
     h1 {
         font-size: 50px;
     }
@@ -90,6 +91,12 @@ h2 {
     
     .navbar {
     display: inline-block;    
+    text-align: left;
+    }
+}
+
+@media(max-width: 767px) {
+    .navbar {
     text-align: center;
     }
 }
