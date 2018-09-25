@@ -9,7 +9,7 @@ app = Flask(__name__)
 def index():
     if request.method == "POST":
         with open("data/users.txt", "a+") as user_list:
-            if "username" not in user_list:
+            if request.form["username"] not in user_list:
                 user_list.writelines(request.form["username"] + "\n")
         return redirect(request.form["username"])
     return render_template("index.html")
