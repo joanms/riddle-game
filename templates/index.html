@@ -1,7 +1,13 @@
 {% extends 'base.html' %} {% block content %}
 <div class="main-content">
     <div class="text-box">
-        <h2>Login</h2>
+        <h2>Please enter your user name:</h2>
+        <div class="center-form">
+            <form>
+            <input type="text" name="name" class="form-control" id="username" placeholder="User Name" required/>
+                <button type="submit" class="btn btn-secondary center-block">Submit</button>
+            </form>
+            </div>
     </div>    
 </div>
 {% endblock %}
