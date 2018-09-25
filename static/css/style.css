@@ -31,7 +31,7 @@ body {
     position: fixed;
     top: 60%;
     transform: translateY(-60%);
-
+    text-align: center
 }
 
 .title {
@@ -73,7 +73,7 @@ h2 {
     color: #5A18C9;
 }
 
-#username {
+.form-label {
     font-family: "Oswald", sans-serif;
     font-size: 20px;
 }

@@ -1,13 +1,12 @@
 {% extends 'base.html' %} {% block content %}
 <div class="main-content">
     <div class="text-box">
-        <h2>Please enter your user name:</h2>
-        <div class="center-form">
-            <form>
-            <input type="text" name="name" class="form-control" id="username" placeholder="User Name" required/>
-                <button type="submit" class="btn btn-secondary center-block">Submit</button>
-            </form>
-            </div>
+        <h2>Please enter your username:</h2>
+        <form>
+            <label for="username" class="form-label">Username:</label>    
+            <input type="text" id="username">
+            <button class="form-label">Submit</button>
+        </form>
     </div>    
 </div>
 {% endblock %}
