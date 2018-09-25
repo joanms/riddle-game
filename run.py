@@ -1,11 +1,16 @@
 import os
-from flask import Flask, render_template
+from flask import Flask, redirect, render_template, request
 
 app = Flask(__name__)
 
 
-@app.route('/')
+
+@app.route('/', methods=["GET", "POST"])
 def index():
+    if request.method == "POST":
+        with open("data/users.txt", "a") as user_list:
+            user_list.writelines(request.form["username"] + "\n")
+        return redirect(request.form["username"])
     return render_template("index.html")
 
 @app.route('/play')
