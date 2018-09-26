@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster|Oswald:400,700');
 
 /*Colours
-#D4D4F7 Lilac
-#341509 Dark Brown*/
+#58A7C6 Teal
+Black*/
 
 body {
     overflow: hidden;  /*Ensures that the background image does not create an unnecessary scrollbar*/
@@ -11,7 +11,7 @@ body {
 .main-content {
     height:100%;
 /*Code for the background image is from https://css-tricks.com/perfect-full-page-background-image/*/
-    background: url("../images/maze-2264.jpg") no-repeat center center fixed; 
+    background: url("../images/riddle-background.jpg") no-repeat center center fixed; 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -23,13 +23,12 @@ body {
 }
 
 .text-box {
-    background-color: rgba(184, 170, 20, 0.7);
-    color: #342E09;
+    background-color: rgba(88, 167, 198, 0.8);
+    color: black;
     width: 50vw;
-    height: 50vh;
     padding: 20px;
     position: fixed;
-    top: 60%;
+    top: 50%;
     transform: translateY(-60%);
     text-align: center
 }
@@ -51,9 +50,9 @@ h2 {
 }
 
 .header-elements {
-    background-color: #b89f14;
+    background-color: #58A7C6;
     background-image: url("../images/maze-black.png");
-    color: #342E09;
+    color: black;
 }
 
 .menuitem {
@@ -61,7 +60,7 @@ h2 {
     font-weight: 400;
     font-size: 25px;
     display: inline-block;
-    color: #342E09;
+    color: black;
 }
 
 .menuitem a {
@@ -69,7 +68,6 @@ h2 {
 }
 
 .menuitem a:hover {
-    text-decoration: none;
     color: #5A18C9;
 }
 
