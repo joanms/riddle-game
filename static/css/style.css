@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster|Oswald:400,700');
 
 /*Colours
+Black
 #58A7C6 Teal
-Black*/
+#FC600A Orange*/
 
 body {
     overflow: hidden;  /*Ensures that the background image does not create an unnecessary scrollbar*/
@@ -23,7 +24,7 @@ body {
 }
 
 .text-box {
-    background-color: rgba(88, 167, 198, 0.8);
+    background-color: rgba(88, 167, 198, 0.9);
     color: black;
     width: 50vw;
     padding: 20px;
@@ -63,12 +64,13 @@ h2 {
     color: black;
 }
 
-.menuitem a {
-    text-decoration: none;
+#home {
+    margin-right: 10px;
 }
 
 .menuitem a:hover {
-    color: #5A18C9;
+    text-decoration: none;
+    color: #FC600A;
 }
 
 .form-label {
