@@ -24,7 +24,7 @@ body {
 }
 
 .text-box {
-    background-color: rgba(88, 167, 198, 0.9);
+    background-color: rgba(69, 157, 191, 0.9);
     color: black;
     width: 50vw;
     padding: 20px;
@@ -51,7 +51,7 @@ h2 {
 }
 
 .header-elements {
-    background-color: #58A7C6;
+    background-color: #459DBF;
     background-image: url("../images/arches.png");
     color: black;
 }

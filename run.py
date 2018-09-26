@@ -4,12 +4,16 @@ from flask import Flask, redirect, render_template, request
 app = Flask(__name__)
 
 
-
 @app.route('/', methods=["GET", "POST"])
 def index():
     if request.method == "POST" and request.form["username"] not in open("data/users.txt").read():
-        with open("data/users.txt", "a+") as user_list:
-            user_list.writelines(request.form["username"] + "\n")
+        username = request.form["username"]
+        score = 0
+        user_dict = {"user": username, "score": 0}
+        with open("data/users.txt", "a") as user_list:
+            user_list.writelines("{0}: {1}".format(
+                user_dict["user"],
+                user_dict["score"]))
         return redirect(request.form["username"])
     return render_template("index.html")
 
