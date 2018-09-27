@@ -2,6 +2,7 @@ import os
 from flask import Flask, flash, redirect, render_template, request
 
 app = Flask(__name__)
+app.secret_key = os.urandom(24)
 
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -10,7 +11,7 @@ def index():
         if username not in open("data/users.txt").read():
             with open("data/users.txt", "a") as user_list:
                 user_list.writelines(username +"\n")
-            return redirect(request.form["username"])
+            return render_template("play.html")
         else:
             flash("That username is already taken. Please try another one.")
     return render_template("index.html")
