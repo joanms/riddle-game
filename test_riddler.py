@@ -1,5 +1,7 @@
 import unittest
-
-import run
+import riddler
         
-        
+class TestRiddler(unittest.TestCase):
+    """
+    Test suite for riddle game
+    """
