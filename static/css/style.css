@@ -56,6 +56,10 @@ p {
     font-size: 20px;
 }
 
+.flash {
+    font-weight: 700;
+}
+
 .header-elements {
     background-color: #459DBF;
     background-image: url("../images/arches.png");
