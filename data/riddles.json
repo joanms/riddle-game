@@ -1,52 +1,52 @@
 [
     {
         "index": 1,
-        "riddle": "A man says, 'Brothers and sisters, have I none, but that man's father is my father's son.' Who is he pointing at? (two words)",
-        "solution": "His son"
+        "question": "A man says, 'Brothers and sisters, have I none, but that man's father is my father's son.' Who is he pointing at? (two words)",
+        "answer": "His son"
     },
     {
         "index":2,
-        "riddle": "Feed me and I live, give me something to drink and I'll die. What am I? (one word)",
-        "solution": "Fire"
+        "question": "Feed me and I live, give me something to drink and I'll die. What am I? (one word)",
+        "answer": "Fire"
     },
     {
         "index": 3,
-        "riddle": "Forward I am heavy, backwards I am not. What am I? (one word)",
-        "solution": "Ton"
+        "question": "Forward I am heavy, backwards I am not. What am I? (one word)",
+        "answer": "Ton"
     },
     {
         "index": 4,
-        "riddle": "I am lighter than air but a million men cannot lift me up. What am I? (one word)",
-        "solution": "Bubble"
+        "question": "I am lighter than air but a million men cannot lift me up. What am I? (one word)",
+        "answer": "Bubble"
     },
     {
         "index": 5,
-        "riddle": " You hear it speak, for it has a hard tongue. But it cannot breathe, for it has not a lung. What is it? (one word)",
-        "solution": "Bell"
+        "question": " You hear it speak, for it has a hard tongue. But it cannot breathe, for it has not a lung. What is it? (one word)",
+        "answer": "Bell"
     },
     {
         "index": 6,
-        "riddle": "I have two arms, but fingers none. I have two feet, but cannot run. I carry well, but I have found I carry best with my feet off the ground. What am I? (one word)",
-        "solution": "Wheelbarrow"
+        "question": "I have two arms, but fingers none. I have two feet, but cannot run. I carry well, but I have found I carry best with my feet off the ground. What am I? (one word)",
+        "answer": "Wheelbarrow"
     }
     {
         "index": 7,
-        "riddle": "Take off my skin and I won't cry, but you will. What am I? (one word)",
-        "solution": "Onion"
+        "question": "Take off my skin and I won't cry, but you will. What am I? (one word)",
+        "answer": "Onion"
     },
     {
         "index": 8,
-        "riddle": "The more of them you take, the more you leave behind. What are they? (one word)",
-        "solution": "Footsteps"
+        "question": "The more of them you take, the more you leave behind. What are they? (one word)",
+        "answer": "Footsteps"
     },
     {
         "index": 9,
-        "riddle": "The person who makes it has no need for it. The person who purchases it does not use it. The person who does use it does not know he or she is. What is it? (one word)",
-        "solution": "Coffin"
+        "question": "The person who makes it has no need for it. The person who purchases it does not use it. The person who does use it does not know he or she is. What is it? (one word)",
+        "answer": "Coffin"
     },
     {
         "index": 10,
-        "riddle": "Three lives have I. Gentle enough to soothe the skin. Light enough to caress the sky. Hard enough to crack rocks. What am I? (one word)",
-        "solution": "Water"
+        "question": "Three lives have I. Gentle enough to soothe the skin. Light enough to caress the sky. Hard enough to crack rocks. What am I? (one word)",
+        "answer": "Water"
     },
 ]

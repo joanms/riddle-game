@@ -22,7 +22,7 @@ def play():
     data = []
     with open("data/riddles.json", "r") as json_data:
         data = json.load(json_data)
-    return render_template("play.html", riddles=data)
+    return render_template("play.html", list_of_numbers=[1, 2, 3])
 
 @app.route('/leaderboard')
 def leaderboard():

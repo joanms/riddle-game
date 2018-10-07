@@ -2,13 +2,15 @@
 <div class="main-content">
     <div class="text-box">
         <h2>Play the Game</h2>
+        <p>{{ list_of_numbers }}</p>
         <form method="POST">
             <label for="answer" class="form-label">Answer:</label>    
             <input type="text" id="username" name="username">
             <button class="form-label">Submit Answer</button>
         </form>
-        <div id="score">Score: <span class="badge badge-light">0</span>
-</div>
+        <div id="score">
+            Score: <span class="badge badge-light">0</span>
+        </div>
     </div>
 </div>
 {% endblock %}
