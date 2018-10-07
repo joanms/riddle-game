@@ -20,7 +20,10 @@ def index():
 
 @app.route('/play')
 def play():
-    return render_template("play.html")
+    data = []
+    with open("data/riddles.json", "r") as json_data:
+        data = json.load(json_data)
+    return render_template("play.html", riddles=data)
 
 @app.route('/leaderboard')
 def leaderboard():
