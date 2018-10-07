@@ -2,8 +2,8 @@
 
 /*Colours
 Black
-#58A7C6 Teal
-#FC600A Orange*/
+#448D76 Green
+#FD4D0C Orange*/
 
 body {
     overflow: hidden;  /*Ensures that the background image does not create an unnecessary scrollbar*/
@@ -24,7 +24,7 @@ body {
 }
 
 .text-box {
-    background-color: rgba(69, 157, 191, 0.9);
+    background-color: rgba(68, 141, 118, 0.9);
     color: black;
     width: 60vw;
     padding: 20px;
@@ -73,7 +73,7 @@ p {
 }
 
 .header-elements {
-    background-color: #459DBF;
+    background-color: #448D76;
     background-image: url("../images/arches.png");
     color: black;
 }
@@ -92,7 +92,7 @@ p {
 
 .menuitem a:hover {
     text-decoration: none;
-    color: #FC600A;
+    color: #FD4D0C;
 }
 
 .form-label {
