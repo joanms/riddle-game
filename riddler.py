@@ -15,8 +15,7 @@ def index():
             return render_template("play.html")
         else:
             flash("That username is already taken. Please try another one.")
-    else:
-        return render_template("index.html")
+    return render_template("index.html")
 
 @app.route('/play')
 def play():
