@@ -1,10 +1,9 @@
-{% extends 'base.html' %} {% block content %}
+{% extends 'base.html' %} 
+{% block content %}
 <div class="main-content">
     <div class="text-box">
         <h2>Play the Game</h2>
-        {% for riddle in riddles %}
-        <p>{{ riddle.question }}</p>
-        {% endfor %}
+        <p>{{ json_data }}</p>
         <form method="POST">
             <label for="answer" class="form-label">Answer:</label>    
             <input type="text" id="username" name="username">
