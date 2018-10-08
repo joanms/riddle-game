@@ -17,11 +17,12 @@ def index():
             flash("That username is already taken. Please try another one.")
     return render_template("index.html")
 
-@app.route('/play')
+@app.route('/play', methods=["GET", "POST"])
 def play():
     data = []
     with open("data/riddles.json", "r") as json_data:
         data = json.load(json_data)
+        print(data)
     return render_template("play.html", riddles=data)
 
 @app.route('/leaderboard')
