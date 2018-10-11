@@ -12,21 +12,21 @@ def index():
         if username not in open("data/users.txt").read():
             with open("data/users.txt", "a") as user_list:
                 user_list.writelines(username +"\n")
-            return render_template("play.html")
+            data = []
+            with open("data/riddles.json", "r") as json_file:
+                data = json.load(json_file)
+                return render_template("play.html", page_title="Play the Game!", riddles=data)
         else:
             flash("That username is already taken. Please try another one.")
-    return render_template("index.html")
+    return render_template("index.html", page_title="Please select a username:")
 
 @app.route('/play', methods=["GET", "POST"])
 def play():
-    json_data = []
-    with open("riddles.json", "r") as json_file:
-        json_data = json.load(json_file)
-    return render_template("play.html", riddles=json_data)
+    return render_template("play.html")
 
 @app.route('/leaderboard')
 def leaderboard():
-    return render_template("leaderboard.html")
+    return render_template("leaderboard.html", page_title="Leaderboard")
     
 
 if __name__ == '__main__':
