@@ -1,19 +1,19 @@
 {% extends 'base.html' %} {% block content %}
-<div class="main-content">
-    <div class="text-box">
-        <h2>{{ page_title }}</h2>
-        <p>This will be used to rank the top scores in a leaderboard.</p>
-        {% with messages = get_flashed_messages() %} {% if messages %}
-            {% for message in messages %}
-            <p class="flash">{{ message }}</p>
-            {% endfor %}
-        {% endif %} {% endwith %}
-        <form method="POST">
-            <label for="username" class="form-label">Username:</label>    
-            <input type="text" id="username" name="username">
-            <button class="form-label">Log In</button>
-        </form>
-    </div>    
-</div>
+    <div id="main-content">
+        <div class="text-box">
+            <h2>{{ page_title }}</h2>
+            <p>This will be used to rank the top scores in a leaderboard.</p>
+            {% with messages = get_flashed_messages() %} {% if messages %}
+                {% for message in messages %}
+                <p class="flash">{{ message }}</p>
+                {% endfor %}
+            {% endif %} {% endwith %}
+            <form method="POST">
+                <label for="username" class="form-label">Username:</label>    
+                <input type="text" id="username" name="username">
+                <button class="form-label">Log In</button>
+            </form>
+        </div>
+    </div>
 {% endblock %}
 

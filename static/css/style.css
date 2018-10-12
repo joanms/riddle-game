@@ -6,31 +6,22 @@ Black
 #FD4D0C Orange*/
 
 body {
+    background: url("../images/riddle-background.jpg") no-repeat center fixed; 
+    background-size: cover;
     overflow: hidden;  /*Ensures that the background image does not create an unnecessary scrollbar*/
 }
 
-.main-content {
-    height:100%;
-/*Code for the background image is from https://css-tricks.com/perfect-full-page-background-image/*/
-    background: url("../images/riddle-background.jpg") no-repeat center center fixed; 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
+#main-content {
+    text-align: center;
 }
 
 .text-box {
-    background-color: rgba(68, 141, 118, 0.9);
+    background-color: rgba(68, 141, 118, 0.8);
     color: black;
     width: 60vw;
     padding: 20px;
-    position: fixed;
-    top: 50%;
-    transform: translateY(-60%);
+    display: inline-block;
+    position: relative;
     text-align: center
 }
 
@@ -79,8 +70,8 @@ p {
     font-weight: 400;
 }
 
-.header-elements {
-    background-color: #448D76;
+#header {
+    background-color: rgba(68, 141, 118, 0.8);
     color: black;
 }
 
