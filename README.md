@@ -75,8 +75,7 @@ In addition, if it is not obvious, you should also describe how to run your code
 - The riddles are from the [Riddle Solution Answer Database](https://riddle.solutions/).
 
 ### Media
-- The background texture in the header was created by [Kim Ruddock](https://www.underdogdesign.co.uk/about/) and downloaded from [Transparent Textures](https://www.transparenttextures.com/).
-- The main background image is a free stock image from [Pixabay](https://pixabay.com/).
+- The background image is a free stock image from [Pixabay](https://pixabay.com/).
 
 ### Acknowledgements
 
