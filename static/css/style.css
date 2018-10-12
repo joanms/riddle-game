@@ -12,17 +12,22 @@ body {
 }
 
 #main-content {
-    text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center; 
 }
 
 .text-box {
-    background-color: rgba(68, 141, 118, 0.8);
+    background-color: rgba(68, 141, 118, 0.85);
     color: black;
     width: 60vw;
     padding: 20px;
-    display: inline-block;
-    position: relative;
-    text-align: center
+    text-align: center;
+      top:50%;
+  left: 50%;
+  transform: translate3d(-50%,-50%, 0);
+  position: absolute;
+
 }
 
 .title {
@@ -71,7 +76,7 @@ p {
 }
 
 #header {
-    background-color: rgba(68, 141, 118, 0.8);
+    background-color: rgba(68, 141, 118, 0.85);
     color: black;
 }
 

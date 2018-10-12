@@ -1,22 +1,21 @@
 {% extends 'base.html' %} 
 {% block content %}
-<div class="main-content">
-    <div class="text-box">
-        <h2>{{ page_title }}</h2>
-        <h3>Riddle (number) of 10</h3>
-        <p>Riddle question</p>
-        <form method="POST">
-            <label for="answer" class="form-label">Answer:</label>    
-            <input type="text" id="username" name="username">
-            <button class="form-label">Submit Answer</button>
-        </form>
-        <div class = "counter" id="score">
-            Score: <span class="badge badge-light">0</span>
+    <div id="main-content">
+        <div class="text-box">
+            <h2>{{ page_title }}</h2>
+            <h3>Riddle (number) of 10</h3>
+            <p>Riddle question</p>
+            <form method="POST">
+                <label for="answer" class="form-label">Answer:</label>    
+                <input type="text" id="username" name="username">
+                <button class="form-label">Submit Answer</button>
+            </form>
+            <div class = "counter" id="score">
+                Score: <span class="badge badge-light">0</span>
+            </div>
+            <div class = "counter" id="attempt">
+                Attempt: <span class="badge badge-light">0</span>
+            </div>
         </div>
-        <div class = "counter" id="attempt">
-            Attempt: <span class="badge badge-light">0</span>
-        </div>
-
-    </div>
-</div>
+    </div>    
 {% endblock %}
