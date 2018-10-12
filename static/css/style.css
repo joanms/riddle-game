@@ -44,9 +44,16 @@ h1 {
 }
 
 h2 {
-    font-family: Oswald;
+    font-family: "Oswald", sans-serif;
     font-weight: 700;
     font-size: 50px;
+    text-align: center;
+}
+
+h3 {
+    font-family: "Oswald", sans-serif;
+    font-weight: 700;
+    font-size: 20px;
     text-align: center;
 }
 
@@ -66,7 +73,7 @@ p {
     font-weight: 700;
 }
 
-#score {
+.counter {
     font-family: "Oswald", sans-serif;
     font-size: 20px;
     font-weight: 400;
@@ -74,7 +81,6 @@ p {
 
 .header-elements {
     background-color: #448D76;
-    background-image: url("../images/arches.png");
     color: black;
 }
 
