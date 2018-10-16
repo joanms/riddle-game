@@ -29,6 +29,7 @@ def init_game(username):
     
 # End of code from my mentor
 
+# User logs in and the first question is displayed
 @app.route('/', methods=["GET", "POST"])
 def index():
     if request.method == "POST":
