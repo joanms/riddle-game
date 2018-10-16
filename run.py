@@ -5,12 +5,14 @@ from flask import Flask, flash, redirect, render_template, request
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
+
+# Start of code from my mentor, Chris Zielinski
+
 def get_riddle(index):
-    with open("data/riddles.json", "r") as json_file:
-        riddles = json.loads(json_file)
-        return riddles[index]
-        
-# CHRIS' CODE START
+    with open('data/riddles.json') as json_riddles:
+        riddles = json.loads(json_riddles.read())
+        return riddles[index] if index < 10 else None # Return None to avoid IndexError on the last riddle
+
 def init_game(username):
     score = 0
     attempt = 1
@@ -24,7 +26,8 @@ def init_game(username):
         'attempt': attempt
     }
     return context
-# CHRIS' CODE END
+    
+# End of code from my mentor
 
 @app.route('/', methods=["GET", "POST"])
 def index():
@@ -33,7 +36,8 @@ def index():
         if username not in open("data/users.txt").read():
             with open("data/users.txt", "a") as user_list:
                 user_list.writelines(username +"\n")
-                return render_template("play.html", page_title="Play the Game!")
+                context = init_game(username)
+                return render_template("play.html", page_title="Play the Game!", context=context)
         else:
             flash("That username is already taken. Please try another one.")
     return render_template("index.html", page_title="Please select a username:")

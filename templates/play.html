@@ -3,8 +3,8 @@
     <div id="main-content">
         <div class="text-box">
             <h2>{{ page_title }}</h2>
-            <h3>Riddle (number) of 10</h3>
-            <p>Riddle question</p>
+            <h3>Riddle {{ context.riddle_index + 1 }} of 10</h3>    <!-- Chris' code -->
+            <p>{{ context.riddle }}</p>                             <!-- Chris' code -->
             <form method="POST">
                 <label for="answer" class="form-label">Answer:</label>    
                 <input type="text" id="username" name="username">
