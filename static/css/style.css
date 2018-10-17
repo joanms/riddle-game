@@ -5,6 +5,29 @@ Black
 #448D76 Green
 #FD4D0C Orange*/
 
+/*HEADER*/
+
+#header {
+    background-color: rgba(93, 177, 151, 0.9);
+    color: black;
+}
+
+.menuitem {
+    font-family: "Oswald", sans-serif;
+    font-weight: 400;
+    font-size: 25px;
+    display: inline-block;
+    color: black;
+}
+
+.menuitem a:hover {
+    text-decoration: none;
+    color: #FD4D0C;
+}
+
+
+/*MAIN CONTENT*/
+
 body {
     background: url("../images/riddle-background.jpg") no-repeat center fixed; 
     background-size: cover;
@@ -18,7 +41,7 @@ body {
 }
 
 .text-box {
-    background-color: rgba(68, 141, 118, 0.9);
+    background-color: rgba(93, 177, 151, 0.9);
     color: black;
     width: 50vw;
     padding: 20px;
@@ -27,10 +50,6 @@ body {
     left: 50%;
     transform: translate3d(-50%,-50%, 0);
     position: absolute;
-}
-
-.title {
-    text-align: center;
 }
 
 h1 {
@@ -74,27 +93,6 @@ p {
     font-weight: 400;
 }
 
-#header {
-    background-color: rgba(68, 141, 118, 0.9);
-    color: black;
-}
-
-.menuitem {
-    font-family: "Oswald", sans-serif;
-    font-weight: 400;
-    font-size: 25px;
-    display: inline-block;
-    color: black;
-}
-
-#home {
-    margin-right: 10px;
-}
-
-.menuitem a:hover {
-    text-decoration: none;
-    color: #FD4D0C;
-}
 
 .form-label {
     font-family: "Oswald", sans-serif;
