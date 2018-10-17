@@ -45,6 +45,8 @@ def index():
 
 @app.route('/play', methods=["GET", "POST"])
 def play():
+    if request.method == "POST":
+        user_answer = request.form["answer"]
     return render_template("play.html")
 
 @app.route('/leaderboard')

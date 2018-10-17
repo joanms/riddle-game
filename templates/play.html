@@ -11,10 +11,10 @@
                 <button class="form-label">Submit Answer</button>
             </form>
             <div class = "counter" id="score">
-                Score: <span class="badge badge-light">0</span>
+                Score: {{ context.current_score }}
             </div>
             <div class = "counter" id="attempt">
-                Attempt: <span class="badge badge-light">0</span>
+                Attempt: {{ context.attempt }}
             </div>
         </div>
     </div>    
