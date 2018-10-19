@@ -44,7 +44,7 @@ def index():
     return render_template("index.html")
 
 @app.route('/play/<username>', methods=["GET", "POST"])
-def play():
+def play(username):
     return render_template("play.html")
 
 @app.route('/leaderboard')
