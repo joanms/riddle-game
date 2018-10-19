@@ -30,7 +30,7 @@ def init_game(username):
 # End of code from my mentor
 
 # User logs in and the first question is displayed
-@app.route('/')
+@app.route('/', methods=["GET", "POST"])
 def index():
     if request.method == "POST":
         username = request.form["username"]
@@ -38,12 +38,12 @@ def index():
             with open("data/users.txt", "a") as user_list:
                 user_list.writelines(username +"\n")
                 context = init_game(username)
-                return render_template("play.html", context=context)
+                return render_template("play.html", context=context, username=username)
         else:
             flash("That username is already taken. Please try another one.")
     return render_template("index.html")
 
-@app.route('/play', methods=["GET", "POST"])
+@app.route('/play/<username>', methods=["GET", "POST"])
 def play():
     return render_template("play.html")
 
