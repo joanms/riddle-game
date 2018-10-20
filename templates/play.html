@@ -6,7 +6,7 @@
             <p>{{ context.riddle }}</p>
             <form method="POST">
                 <label for="answer" class="form-label">Answer:</label>    
-                <input type="text" id="username" name="username">
+                <input type="text" id="answer" name="answer">
                 <button class="form-label">Submit Answer</button>
             </form>
             {% with messages = get_flashed_messages() %} {% if messages %}
