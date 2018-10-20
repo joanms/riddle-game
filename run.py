@@ -8,11 +8,13 @@ app.secret_key = os.urandom(24)
 
 # Start of code from my mentor, Chris Zielinski
 
+# Get the info for the next riddle
 def get_riddle(index):
     with open('data/riddles.json') as json_riddles:
         riddles = json.loads(json_riddles.read())
         return riddles[index] if index < 10 else None # Return None to avoid IndexError on the last riddle
 
+# Initialise the game with some default values
 def init_game(username):
     score = 0
     attempt = 1
