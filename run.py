@@ -48,6 +48,10 @@ def index():
 @app.route('/play/<username>', methods=["GET", "POST"])
 def play(username):
     context = init_game(username)
+    if request.method == "POST":
+        user_answer = request.form.get("user_answer")
+        with open("data/answers.txt", "a") as user_answers:
+            user_answers.writelines(user_answer +"\n")
     return render_template("play.html", context=context, username=username)
 
 @app.route('/leaderboard')
