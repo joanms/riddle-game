@@ -40,14 +40,15 @@ def index():
             with open("data/users.txt", "a") as user_list:
                 user_list.writelines(username +"\n")
                 context = init_game(username)
-                return render_template("play.html", context=context, username=username)
+                return render_template("ready.html", context=context, username=username)
         else:
             flash("That username is already taken. Please try another one.")
     return render_template("index.html")
 
 @app.route('/play/<username>', methods=["GET", "POST"])
 def play(username):
-    return render_template("play.html")
+    context = init_game(username)
+    return render_template("play.html", context=context, username=username)
 
 @app.route('/leaderboard')
 def leaderboard():

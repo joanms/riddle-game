@@ -2,11 +2,6 @@
 {% block content %}
     <div id="main-content">
         <div class="text-box">
-            <h2>Welcome, {{ username }}!</h2>
-            <p>You will be presented with 10 riddles, and given two chances to 
-            answer each one. You will get one point for each one that you answer 
-            correctly. When you have answered or attempted all 10, your score 
-            will be added to a leaderboard. There is no time limit. Good luck!</p>
             <h3>Riddle {{ context.riddle_index + 1 }} of 10</h3>
             <p>{{ context.riddle }}</p>
             <form method="POST">
@@ -14,6 +9,11 @@
                 <input type="text" id="username" name="username">
                 <button class="form-label">Submit Answer</button>
             </form>
+            {% with messages = get_flashed_messages() %} {% if messages %}
+                {% for message in messages %}
+                <p class="flash">{{ message }}</p>
+                {% endfor %}
+            {% endif %} {% endwith %}
             <div class = "counter" id="score">
                 Score: {{ context.current_score }}
             </div>

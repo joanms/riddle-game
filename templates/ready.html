@@ -1,0 +1,16 @@
+{% extends 'base.html' %} 
+{% block content %}
+          <div id="main-content">
+                    <div class="text-box">
+                    <h2>Welcome, {{ username }}!</h2>
+                    <p>You will be presented with 10 riddles, and given two chances to 
+                    answer each one. You will get one point for each one that you answer 
+                    correctly. When you have answered or attempted all 10, your score                               
+                    will be added to a leaderboard. There is no time limit. When you're 
+                    ready to start, please click the button. Good luck!</p>
+                    <form method="POST" action="/play/{{ username }}">
+                              <button class="form-label" action="play.html">Riddle Me!</button>
+                    </form>
+        </div>
+    </div>    
+{% endblock %}
