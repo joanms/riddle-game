@@ -49,15 +49,16 @@ def index():
 def play(username):
     context = init_game(username)
     if request.method == "POST":
-        
         riddle_index = 0
         riddle = get_riddle(riddle_index)
-
         user_answer = request.form.get("user_answer")
         correct_answer = riddle["answer"]
         correct = user_answer == correct_answer
-        if correct:
-            flash("Correct!")
+        if user_answer != None:
+            if correct:
+                flash("Correct!")
+            else:
+                flash("{} was the wrong answer. Please try again.".format(user_answer))
     return render_template("play.html", context=context, username=username)
 
 @app.route('/leaderboard')
