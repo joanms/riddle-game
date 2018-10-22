@@ -4,16 +4,20 @@
         <div class="text-box">
             <h3>Riddle {{ context.riddle_index + 1 }} of 10</h3>
             <p>{{ context.riddle }}</p>
-            <form method="POST">
-                <label for="answer" class="form-label">Answer:</label>    
-                <input type="text" id="user_answer" name="user_answer">
-                <button class="form-label">Submit Answer</button>
-            </form>
             {% with messages = get_flashed_messages() %} {% if messages %}
                 {% for message in messages %}
                 <p class="flash">{{ message }}</p>
                 {% endfor %}
             {% endif %} {% endwith %}
+            <form method="POST">
+                <label for="answer" class="form-label">Answer:</label>    
+                <input type="text" id="user_answer" name="user_answer">
+                <!--The following 3 lines of code are from my mentor, Chris Zielinski-->
+                <!--<input type="hidden" name="riddle_index" id="riddle_index" value="{{ context.riddle_index }}">-->
+                <!--<input type="hidden" name="current_score" id="current_score" value="{{ context.current_score }}">-->
+                <!--<input type="hidden" name="attempt" id="attempt" value="{{ context.attempt }}">-->
+                <button class="form-label">Submit Answer</button>
+            </form>
             <div class = "counter" id="score">
                 Score: {{ context.current_score }}
             </div>
