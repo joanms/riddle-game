@@ -54,9 +54,9 @@ def play(username):
         user_answer = request.form.get("user_answer")
         correct_answer = riddle["answer"]
         correct = user_answer == correct_answer
-        if user_answer != None:
+        if user_answer != None: # This avoids an error on page load due to the question not having been answered yet.
             if correct:
-                flash("Correct!")
+                flash("Well done!")
             else:
                 flash("{} was the wrong answer. Please try again.".format(user_answer))
     return render_template("play.html", context=context, username=username)
