@@ -10,7 +10,7 @@ As a user, I want to:
 - get clear, immediate feedback on my progress.
 - see how I compare to other players.
 
-This section is also where you would share links to any wireframes, mockups, diagrams etc. that you created as part of the design process. These files should themselves either be included in the project itself (in an separate directory), or just hosted elsewhere online and can be in any format that is viewable inside the browser.
+Please [click here](https://www.lucidchart.com/invitations/accept/f3b7e96b-17bc-4e27-836f-4051f1113364) to see a flowchart of the game logic.
 
 ## Features
 
@@ -79,4 +79,4 @@ In addition, if it is not obvious, you should also describe how to run your code
 ### Acknowledgements
 
 My mentor, Chris Zielinski, gave me the idea for the projects overall structure 
-and provided valuable feedback and advice.
+and provided valuable feedback and ad
