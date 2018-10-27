@@ -53,7 +53,7 @@ def play(username):
         riddle = get_riddle(riddle_index)
         user_answer = request.form.get("user_answer")
         correct_answer = riddle["answer"]
-        if user_answer != None: # This avoids an error due to the question not having been answered yet.
+        if user_answer != None: # This avoids an error when the user hasn't answered yet.
             correct = user_answer.lower() == correct_answer.lower() # The answer should not be case sensitive
             if correct:
                 flash("Well done!")
