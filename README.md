@@ -1,6 +1,6 @@
 # Riddle Game
 
-This is a game in which users, each with a unique user name, are presented with a series of 20 riddles. The top scores are listed in a leader board, in descending order.
+This is a game in which users, each with a unique user name, are presented with a series of 10 riddles. The top scores are listed in a leader board, in descending order.
  
 ## UX
  
@@ -29,12 +29,11 @@ In addition, you may also use this section to discuss plans for additional featu
 
 ## Technologies Used
 
-In this section, you should mention all of the languages, frameworks, libraries, and any other tools that you have used to construct this project. For each, provide its name, a link to its official site and a short sentence of why it was used.
-
-- [Python](https://www.python.org/)
-    - The logic for this project is written in **Python**.
-- [Flask](http://flask.pocoo.org/)
-    - The project uses the **Flask** microframework to make the code more elegant. 
+- **[HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)** was used to write the content of the site.
+- **[CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)** was used to style the content.
+- **[Bootstrap](https://getbootstrap.com/)** was used to simplify the layout and responsiveness.
+- **[Python](https://www.python.org/)** was used to write the game logic.
+- **[Flask](http://flask.pocoo.org/)** was used to make the Python code more elegant and efficient.
 
 
 ## Testing
@@ -79,4 +78,5 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 ### Acknowledgements
 
-- I received inspiration for this project from X
+My mentor, Chris Zielinski, gave me the idea for the projects overall structure 
+and provided valuable feedback and advice.
