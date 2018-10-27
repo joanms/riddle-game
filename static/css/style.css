@@ -2,13 +2,13 @@
 
 /*Colours
 Black
-#448D76 Green
+#83C3AF Green
 #FD4D0C Orange*/
 
 /*HEADER*/
 
 #header {
-    background-color: rgba(93, 177, 151, 0.9);
+    background-color: rgba(145, 202, 184, 0.9);
     color: black;
 }
 
@@ -45,7 +45,7 @@ body {
 }
 
 .text-box {
-    background-color: rgba(93, 177, 151, 0.9);
+    background-color: rgba(145, 202, 184, 0.9);
     color: black;
     width: 60vw;
     padding: 20px;
