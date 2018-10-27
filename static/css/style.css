@@ -76,33 +76,16 @@ h3 {
     text-align: center;
 }
 
-p {
+.body-text {
     font-family: "Oswald", sans-serif;
     font-weight: 400;
     font-size: 20px;
 }
 
-.flash {
+#flash {
     font-weight: 700;
 }
 
-.btn {
-    font-family: "Oswald", sans-serif;
-    font-size: 20px;
-    font-weight: 700;
-}
-
-.counter {
-    font-family: "Oswald", sans-serif;
-    font-size: 20px;
-    font-weight: 400;
-}
-
-
-.form-label {
-    font-family: "Oswald", sans-serif;
-    font-size: 20px;
-}
 
 /*Media Queries*/
 
@@ -129,5 +112,15 @@ p {
     .navbar {
     text-align: center;
     font-size: 12px;
+    }
+}
+
+@media(max-width: 375px){
+    h2 {
+        font-size: 30px;
+    }
+    
+    .body-text {
+        font-size: 15px;
     }
 }
