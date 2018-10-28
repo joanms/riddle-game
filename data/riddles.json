@@ -2,53 +2,53 @@
     "riddles":[
         {
             "index": 0,
-            "question": "What object has keys that open no locks, space but no room, and you can enter but not go in?",
-            "answer": "Keyboard"
+            "question": "Mountains will crumble and temples will fall, and no man can survive its endless call. What is it?",
+            "answer": "time"
         },
         {
             "index": 1,
-            "question": "Feed me and I live, give me something to drink and I'll die. What am I?",
-            "answer": "Fire"
+            "question": "When they are caught, they are thrown away. When they escape, you itch all day. What are they?",
+            "answer": "fleas"
         },
         {
             "index": 2,
-            "question": "Forward I am heavy, backwards I am not. What am I?",
-            "answer": "Ton"
+            "question": "I have two arms, but fingers none. I have two feet, but cannot run. I carry well, but I have found I carry best with my feet off the ground. What am I?",
+            "answer": "wheelbarrow"
         },
         {
             "index": 3,
-            "question": "I am lighter than air but a million men cannot lift me up. What am I?",
-            "answer": "Bubble"
+            "question": "I'm the part of the bird that's not in the sky. I can swim in the ocean and yet remain dry. What am I?",
+            "answer": "shadow"
         },
         {
             "index": 4,
             "question": "You hear it speak, for it has a hard tongue. But it cannot breathe, for it has not a lung. What is it?",
-            "answer": "Bell"
+            "answer": "bell"
         },
         {
             "index": 5,
-            "question": "I have two arms, but fingers none. I have two feet, but cannot run. I carry well, but I have found I carry best with my feet off the ground. What am I?",
-            "answer": "Wheelbarrow"
+            "question": "Hands she has but does not hold, teeth she has but does not bite, feet she has but they are cold, eyes she has but without sight. Who is she?",
+            "answer": "doll"
         },
         {
             "index": 6,
-            "question": "Take off my skin and I won't cry, but you will. What am I?",
-            "answer": "Onion"
+            "question": "Lives without a body, hears without ears, speaks without a mouth, to which the air alone gives birth. What is it?",
+            "answer": "echo"
         },
         {
             "index": 7,
-            "question": "The more of them you take, the more you leave behind. What are they?",
-            "answer": "Footsteps"
+            "question": "Take off my skin and I won't cry, but you will. Who am I?",
+            "answer": "onion"
         },
         {
             "index": 8,
-            "question": "The person who makes it has no need for it. The person who purchases it does not use it. The person who does use it does not know he or she is. What is it?",
-            "answer": "Coffin"
+            "question": "Different lights do make me strange, thus into different sizes I will change. What am I?",
+            "answer": "pupil"
         },
         {
             "index": 9,
             "question": "Three lives have I. Gentle enough to soothe the skin. Light enough to caress the sky. Hard enough to crack rocks. What am I?",
-            "answer": "Water"
+            "answer": "water"
         }
     ]
 }
