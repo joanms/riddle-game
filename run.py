@@ -6,7 +6,19 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 
-# User logs in and the first question is displayed
+# Error Handlers
+# Page Not Found
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('404.html'), 404
+
+# Server Error
+@app.errorhandler(500)
+def server_error(e):
+    return render_template('500.html'), 500 
+
+# Game Play
+# The user logs in
 @app.route('/', methods=['GET', 'POST'])
 def index():
     if request.method == 'POST':
@@ -19,7 +31,7 @@ def index():
 def getsession():
     if 'user' in session:
         return session['user']
-        
+
     return 'Not logged in'   
     
 @app.route('/dropsession')
@@ -31,22 +43,11 @@ def dropsession():
 def ready():
     return render_template('ready.html')
 
-
 @app.route('/play/<username>', methods=['GET', 'POST'])
 def play(username):
-    context = init_game(username)
     if request.method == 'POST':
-        riddle = get_riddle(riddle_index)
         user_answer = request.form.get('user_answer')
-        correct_answer = riddle['answer']
-        if user_answer != None: # This avoids an error when the user hasn't answered yet.
-            correct = user_answer.lower() == correct_answer.lower() # The answer should not be case sensitive
-            if correct:
-                flash('Well done!')
-                riddle_index += 1
-            else:
-                flash('{} was the wrong answer. Please try again.'.format(user_answer))
-    return render_template('play.html', context=context, username=username)
+    return render_template('play.html', username=username)
 
 @app.route('/leaderboard')
 def leaderboard():
