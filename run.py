@@ -17,11 +17,20 @@ def page_not_found(e):
 def server_error(e):
     return render_template('500.html'), 500 
     
-# Set initial variables - this code is by Joke Heyndels
+# Load the riddles
+def get_riddles():
+    with open("data/riddles.json", "r") as riddle_data:
+        riddles_list = json.load(riddle_data)["riddles"]
+        return riddles_list
+    
+    
+# Set the initial variables - this is based on code by Joke Heyndels
 def start():
     session['score'] = 0
     session['question_number'] = 1
-    return session['score'], session['question_number']
+    session['attempt'] = 1
+    session['riddles'] = get_riddles()
+    return session['score'], session['question_number'], session['attempt'], session['riddles']
 
 # Game Play
 @app.route('/')
@@ -43,16 +52,21 @@ def login():
         return render_template('ready.html', username=username)
     return render_template("index.html")
 
-        
 @app.route('/ready')
 def ready():
     return render_template('ready.html')
 
 @app.route('/play/<username>', methods=['GET', 'POST'])
 def play(username):
-    if request.method == 'POST':
-        user_answer = request.form.get('user_answer')
-    return render_template('play.html', username=username)
+    if session:
+        question_number = session['question_number']
+        data = session['riddles']
+        score = session['score']
+        attempt = session['attempt']
+        return render_template('play.html', riddles=data, question_number=question_number, score=score, attempt=attempt)
+    else:
+        return redirect(url_for("index"))
+
 
 @app.route('/leaderboard')
 def leaderboard():
