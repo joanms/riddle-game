@@ -2,7 +2,7 @@
 {% block content %}
     <div id="main-content">
         <div class="text-box">
-            <h3>Riddle {{ context.riddle_index + 1 }} of 10</h3>
+            <h3>Riddle {{ question_number }} of 10</h3>
             <p class="body-text">{{ context.riddle }}</p>
             {% with messages = get_flashed_messages() %} {% if messages %}
                 {% for message in messages %}

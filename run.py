@@ -36,8 +36,8 @@ def login():
     if username in current_users:
         flash("That username is taken. Please choose another one.")
     else:
-        userfile = open("data/users.txt", "a")
-        userfile.write(username + "\n")
+        user_list = open("data/users.txt", "a")
+        user_list.write(username + "\n")
         session['user'] = username
         start()
         return render_template('ready.html', username=username)
