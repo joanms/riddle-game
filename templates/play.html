@@ -2,24 +2,33 @@
 {% block content %}
     <div id="main-content">
         <div class="text-box">
-            <h3>Riddle {{ question_number }} of 10</h3>
-            <p class="body-text">{{ riddle }}</p>
+            
+            <h3>Riddle {{ riddle_number }} of 10</h3>
+            <p class="body-text">{{ riddles }}</p>
+            
             {% with messages = get_flashed_messages() %} {% if messages %}
                 {% for message in messages %}
                 <p class="body-text" id="flash">{{ message }}</p>
                 {% endfor %}
             {% endif %} {% endwith %}
+            
             <form method="POST">
                 <label for="answer" class="form-label body-text">Answer:</label>    
                 <input type="text" id="user_answer" name="user_answer">
-                <button class="form-label body-text">Submit Answer</button>
+                <input type="hidden" name="riddle_number" id="riddle_number" value="{{ riddle_number }}">
+                <input type="hidden" name="score" id="score" value="{{ score }}">
+                <input type="hidden" name="attempt" id="attempt" value="{{ attempt }}">
+                <button class="form-label body-text" value="user_answer">Submit Answer</button>
             </form>
+            
             <div class = "body-text" id="score">
                 Score: {{ score }}
             </div>
+            
             <div class = "body-text" id="attempt">
                 Attempt: {{ attempt }}
             </div>
+            
         </div>
     </div>    
 {% endblock %}

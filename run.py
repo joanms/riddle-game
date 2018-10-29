@@ -27,16 +27,16 @@ def get_riddles():
 # Set the initial variables - this is based on code by Joke Heyndels
 def start():
     session['score'] = 0
-    session['question_number'] = 1
+    session['riddle_number'] = 1
     session['attempt'] = 1
     session['riddles'] = get_riddles()
-    return session['score'], session['question_number'], session['attempt'], session['riddles']
+    return session['score'], session['riddle_number'], session['attempt'], session['riddles']
 
-# Game Play
 @app.route('/')
 def index():
     return render_template('index.html')
-    
+ 
+# The user logs in    
 @app.route('/login', methods=['POST'])
 def login():
     username = request.form['username']   
@@ -52,18 +52,20 @@ def login():
         return render_template('ready.html', username=username)
     return render_template("index.html")
 
+# Instructions for the user
 @app.route('/ready')
 def ready():
     return render_template('ready.html')
 
+# Playing the game
 @app.route('/play/<username>', methods=['GET', 'POST'])
 def play(username):
     if session:
-        question_number = session['question_number']
+        riddle_number = session['riddle_number']
         data = session['riddles']
         score = session['score']
         attempt = session['attempt']
-        return render_template('play.html', riddles=data, question_number=question_number, score=score, attempt=attempt)
+        return render_template('play.html', riddles=data, riddle_number=riddle_number, score=score, attempt=attempt)
     else:
         return redirect(url_for("index"))
 
