@@ -19,8 +19,8 @@ def server_error(e):
     
 # Load the riddles
 def get_riddles():
-    with open("data/riddles.json", "r") as riddle_data:
-        riddles_list = json.load(riddle_data)["riddles"]
+    with open('data/riddles.json', 'r') as riddle_data:
+        riddles_list = json.load(riddle_data)['riddles']
         return riddles_list
     
     
@@ -39,18 +39,18 @@ def index():
 # The user logs in    
 @app.route('/login', methods=['POST'])
 def login():
-    username = request.form['username']   
+    username = request.form['username']
     with open('data/users.txt', 'r') as user_list:
         current_users = user_list.read().splitlines()
     if username in current_users:
-        flash("That username is taken. Please choose another one.")
+        flash('That username is taken. Please choose another one.')
     else:
-        user_list = open("data/users.txt", "a")
-        user_list.write(username + "\n")
+        user_list = open('data/users.txt', 'a')
+        user_list.write(username + '\n')
         session['user'] = username
         start()
         return render_template('ready.html', username=username)
-    return render_template("index.html")
+    return render_template('index.html')
 
 # Instructions for the user
 @app.route('/ready')
@@ -67,7 +67,18 @@ def play(username):
         attempt = session['attempt']
         return render_template('play.html', riddles=data, riddle_number=riddle_number, score=score, attempt=attempt)
     else:
-        return redirect(url_for("index"))
+        return redirect(url_for('index'))
+
+# Checking the answers
+@app.route('/play', methods=['POST'])
+def check_answer():
+    if session:
+        session['correct_answer'] = request.form.get('correct_answer')
+        session['user_answer'] = request.form.get('user_answer').lower()
+        correct = session['correct_answer'] == session['user_answer']
+        if correct:
+            session['question_number'] += 1
+            return render_template('play.html', riddles=data, riddle_number=riddle_number, score=score, attempt=attempt)
 
 
 @app.route('/leaderboard')
