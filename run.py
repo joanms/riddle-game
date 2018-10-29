@@ -74,11 +74,11 @@ def play(username):
 def check_answer():
     if session:
         session['correct_answer'] = request.form.get('correct_answer')
-        session['user_answer'] = request.form.get('user_answer').lower()
+        session['user_answer'] = request.form.get('guess').lower()
         correct = session['correct_answer'] == session['user_answer']
         if correct:
-            session['question_number'] += 1
-            return render_template('play.html', riddles=data, riddle_number=riddle_number, score=score, attempt=attempt)
+            flash("Well done!")
+    return render_template('play.html')
 
 
 @app.route('/leaderboard')

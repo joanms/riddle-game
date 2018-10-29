@@ -15,9 +15,9 @@
             
             <form method="POST">
                 <label for="answer" class="form-label body-text">Answer:</label>    
-                <input type="text" id="user_answer" name="user_answer" required>
                 <input type="hidden" name="riddle_number" id="riddle_number" value="{{ riddle_number }}">
                 <input type="hidden" name="correct_answer" id="correct_answer" value="{{ correct_answer }}">
+                <input type="text" id="guess" name="guess" required>
                 <input type="hidden" name="score" id="score" value="{{ score }}">
                 <input type="hidden" name="attempt" id="attempt" value="{{ attempt }}">
                 <button type="submit" class="form-label body-text" value="user_answer">Submit Answer</button>
