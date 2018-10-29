@@ -8,7 +8,7 @@
                 <p class="body-text" id="flash">{{ message }}</p>
                 {% endfor %}
             {% endif %} {% endwith %}
-            <form method="POST">
+            <form method="POST" action="/login">
                 <label for="username" class="form-label body-text">Username:</label>    
                 <input type="text" id="username" name="username">
                 <button class="form-label body-text">Log In</button>

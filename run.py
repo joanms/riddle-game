@@ -16,29 +16,34 @@ def page_not_found(e):
 @app.errorhandler(500)
 def server_error(e):
     return render_template('500.html'), 500 
+    
+# Set initial variables - this code is by Joke Heyndels
+def start():
+    session['score'] = 0
+    session['question_number'] = 1
+    return session['score'], session['question_number']
 
 # Game Play
-# The user logs in
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/')
 def index():
-    if request.method == 'POST':
-        session.pop('user', None)
-        session['user'] = request.form['username']
-        return redirect(url_for('ready'))
     return render_template('index.html')
     
-@app.route('/getsession')
-def getsession():
-    if 'user' in session:
-        return session['user']
+@app.route('/login', methods=['POST'])
+def login():
+    username = request.form['username']   
+    with open('data/users.txt', 'r') as user_list:
+        current_users = user_list.read().splitlines()
+    if username in current_users:
+        flash("That username is taken. Please choose another one.")
+    else:
+        userfile = open("data/users.txt", "a")
+        userfile.write(username + "\n")
+        session['user'] = username
+        start()
+        return render_template('ready.html', username=username)
+    return render_template("index.html")
 
-    return 'Not logged in'   
-    
-@app.route('/dropsession')
-def dropsession():
-    session.pop('user', None)
-    return 'Dropped'
-    
+        
 @app.route('/ready')
 def ready():
     return render_template('ready.html')
