@@ -4,8 +4,7 @@
         <div class="text-box">
             
             <h3>Riddle {{ riddle_number }} of 10</h3>
-                {% for riddle in riddles %} <!--This for loop is based on code by Joke Heyndels-->
-                {% if ( loop.index == riddle_number|int ) %}
+                {% for riddle in riddles %} {% if ( loop.index == riddle_number|int ) %} <!--This for loop is based on code by Joke Heyndels-->
                 <p class="body-text">{{ riddle.question }}</p>
             
             {% with messages = get_flashed_messages() %} {% if messages %}
@@ -16,15 +15,14 @@
             
             <form method="POST">
                 <label for="answer" class="form-label body-text">Answer:</label>    
-                <input type="text" id="user_answer" name="user_answer">
+                <input type="text" id="user_answer" name="user_answer" required>
                 <input type="hidden" name="riddle_number" id="riddle_number" value="{{ riddle_number }}">
                 <input type="hidden" name="score" id="score" value="{{ score }}">
                 <input type="hidden" name="attempt" id="attempt" value="{{ attempt }}">
                 <button class="form-label body-text" value="user_answer">Submit Answer</button>
             </form>
             
-                {% endif %}
-                {% endfor %}
+                {% endif %} {% endfor %} <!--End of loop through riddles-->
             
             <div class = "body-text" id="score">
                 Score: {{ score }}
