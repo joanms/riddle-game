@@ -65,20 +65,19 @@ def play(username):
         data = session['riddles']
         score = session['score']
         attempt = session['attempt']
+        
+        # Checking the answers
+        if request.method == 'POST':
+            session['correct_answer'] = request.form.get('correct_answer')
+            if request.form.get('guess') != None:
+                session['user_answer'] = request.form.get('guess').lower()
+                correct = session['correct_answer'] == session['user_answer']
+                if correct:
+                    flash("Well done!")
+
         return render_template('play.html', riddles=data, riddle_number=riddle_number, score=score, attempt=attempt)
     else:
         return redirect(url_for('index'))
-
-# Checking the answers
-@app.route('/play', methods=['POST'])
-def check_answer():
-    if session:
-        session['correct_answer'] = request.form.get('correct_answer')
-        session['user_answer'] = request.form.get('guess').lower()
-        correct = session['correct_answer'] == session['user_answer']
-        if correct:
-            flash("Well done!")
-    return render_template('play.html')
 
 
 @app.route('/leaderboard')
