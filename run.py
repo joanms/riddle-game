@@ -58,27 +58,43 @@ def ready():
     return render_template('ready.html')
 
 # Playing the game
-@app.route('/play/<username>', methods=['GET', 'POST'])
+@app.route('/play/<username>', methods=['POST'])
 def play(username):
     if session:
         riddle_number = session['riddle_number']
         data = session['riddles']
         score = session['score']
         attempt = session['attempt']
-        
-        # Checking the answers
-        if request.method == 'POST':
-            session['correct_answer'] = request.form.get('correct_answer')
-            if request.form.get('guess') != None:
-                session['user_answer'] = request.form.get('guess').lower()
-                correct = session['correct_answer'] == session['user_answer']
-                if correct:
-                    flash("Well done!")
-
         return render_template('play.html', riddles=data, riddle_number=riddle_number, score=score, attempt=attempt)
     else:
         return redirect(url_for('index'))
 
+
+# Checking the answers
+@app.route('/play', methods=['POST'])
+def check_answer(self):
+    if session:
+        riddle_number = session['riddle_number']
+        data = session['riddles']
+        score = session['score']
+        attempt = session['attempt']
+        session['correct_answer'] = request.form.get('correct_answer')
+        if request.form.get('guess') != None:
+            session['user_answer'] = request.form.get('guess').lower()
+            correct = session['correct_answer'] == session['user_answer']
+            while riddle_number < 10:
+                if correct:
+                    attempt = 1
+                    score += 1
+                    riddle_number += 1
+                    flash("Well done!")
+                elif attempt == 1:
+                    attempt += 1
+                    flash("{} was the wrong answer. You have one more chance.".format(session['user_answer']))
+                else:
+                    riddle_number += 1
+                    flash('The answer was {}. Better luck with the next riddle.'.format(session['correct_answer']))
+        return render_template('play.html', riddles=data, riddle_number=riddle_number, score=score, attempt=attempt)        
 
 @app.route('/leaderboard')
 def leaderboard():
