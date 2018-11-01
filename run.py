@@ -1,6 +1,6 @@
 import os
 import json
-from flask import Flask, flash, session, render_template, request, redirect, url_for
+from flask import Flask, flash, render_template, redirect, request, url_for, session
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -72,29 +72,20 @@ def play(username):
 
 # Checking the answers
 @app.route('/play', methods=['POST'])
-def check_answer(self):
+def check_answer():
     if session:
-        riddle_number = session['riddle_number']
-        data = session['riddles']
-        score = session['score']
-        attempt = session['attempt']
-        session['correct_answer'] = request.form.get('correct_answer')
-        if request.form.get('user_input') != None: # This prevents an error when the question hasn't been answered yet
-            session['user_answer'] = request.form.get('user_input').lower()
-            correct = session['correct_answer'] == session['user_answer']
-            while riddle_number < 10:
-                if correct:
-                    attempt = 1
-                    score += 1
-                    riddle_number += 1
-                    flash("Well done!")
-                elif attempt == 1:
-                    attempt += 1
-                    flash("{} was the wrong answer. You have one more chance.".format(session['user_answer']))
-                else:
-                    riddle_number += 1
-                    flash('The answer was {}. Better luck with the next riddle.'.format(session['correct_answer']))
-        return render_template('play.html', riddles=data, riddle_number=riddle_number, score=score, attempt=attempt)        
+        session['correct_answer'] = request.form.get("correct_answer")
+        session['user_answer'] = request.form.get("user_input").lower()
+        session['question_number'] += 1
+        if session['correct_answer'] in session['user_answer']:
+            session['message'] = "correct"
+            session['score'] += 1
+        else:
+            session['message'] = "wrong"
+        return redirect(url_for("play/<username>"))
+    else:
+        return redirect(url_for("index"))
+        
 
 @app.route('/leaderboard')
 def leaderboard():
