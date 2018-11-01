@@ -3,7 +3,7 @@
 
             <h2>Riddle {{ riddle_number }} of 10</h2>
                 {% for riddle in riddles %} {% if ( loop.index == riddle_number|int ) %} <!--This for loop is based on code by Joke Heyndels-->
-                <p class="body-text">{{ riddle.question }}</p>
+                <p class="body-text">{{ riddle.question|safe }}</p>
 
             {% with messages = get_flashed_messages() %} {% if messages %}
                 {% for message in messages %}

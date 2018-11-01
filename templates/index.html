@@ -3,11 +3,13 @@
 
             <h2>Please select a username:</h2>
             <p class="body-text">This will be used to rank the top scores in a leaderboard.</p>
+            
             {% with messages = get_flashed_messages() %} {% if messages %}
                 {% for message in messages %}
                 <p class="body-text" id="flash">{{ message }}</p>
                 {% endfor %}
             {% endif %} {% endwith %}
+            
             <form method="POST" action="/login">
                 <label for="username" class="form-label body-text">Username:</label>    
                 <input type="text" id="username" name="username" required>
