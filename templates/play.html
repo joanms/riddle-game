@@ -15,12 +15,12 @@
             
             <form method="POST">
                 <label for="answer" class="form-label body-text">Answer:</label>    
-                <input type="hidden" name="riddle_number" id="riddle_number" value="{{ riddle_number }}">
-                <input type="hidden" name="correct_answer" id="correct_answer" value="{{ correct_answer }}">
-                <input type="text" id="guess" name="guess" required>
-                <input type="hidden" name="score" id="score" value="{{ score }}">
-                <input type="hidden" name="attempt" id="attempt" value="{{ attempt }}">
-                <button type="submit" class="form-label body-text" value="user_answer">Submit Answer</button>
+                <input class="field" type="text" name="user_input" id="user_input" required>
+                <input class="field hidden" type="text" name="riddle_number" id="riddle_number" value="{{ loop.index }}">
+                <input class="field hidden" type="text" name="correct_answer" id="correct_answer" value="{{ riddle.answer }}">
+                <input class="field hidden" name="score" id="score" value="{{ score }}">
+                <input class="field hidden" name="attempt" id="attempt" value="{{ attempt }}">
+                <button class="submit" class="form-label body-text" value="user_answer">Submit Answer</button>
             </form>
             
                 {% endif %} {% endfor %} <!--End of loop through riddles-->

@@ -79,8 +79,8 @@ def check_answer(self):
         score = session['score']
         attempt = session['attempt']
         session['correct_answer'] = request.form.get('correct_answer')
-        if request.form.get('guess') != None:
-            session['user_answer'] = request.form.get('guess').lower()
+        if request.form.get('user_input') != None:
+            session['user_answer'] = request.form.get('user_input').lower()
             correct = session['correct_answer'] == session['user_answer']
             while riddle_number < 10:
                 if correct:
