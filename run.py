@@ -76,13 +76,17 @@ def check_answer():
     if session:
         session['correct_answer'] = request.form.get("correct_answer")
         session['user_answer'] = request.form.get("user_input").lower()
-        session['question_number'] += 1
-        if session['correct_answer'] in session['user_answer']:
-            session['message'] = "correct"
-            session['score'] += 1
-        else:
-            session['message'] = "wrong"
-        return redirect(url_for("play/<username>"))
+        while session['riddle_number'] < 10:
+            if session['correct_answer'] == session['user_answer']:
+                flash("Well done!")
+                session['question_number'] += 1
+                session['score'] += 1
+            elif session['attempt'] == 1:
+                flash("{} was the wrong answer. Please try again.".format(session['user_answer']))
+            else:
+                flash("{} was the correct answer. Better luck on the next riddle.".format(session['correct_answer']))
+                session['question_number'] += 1
+            return redirect(url_for("play"))
     else:
         return redirect(url_for("index"))
         
