@@ -1,6 +1,6 @@
-{% extends 'base.html' %} {% block content %}
-    <div id="main-content">
-        <div class="text-box">
+{% extends 'base.html' %} 
+{% block content %}
+
             <h2>Please select a username:</h2>
             <p class="body-text">This will be used to rank the top scores in a leaderboard.</p>
             {% with messages = get_flashed_messages() %} {% if messages %}
@@ -13,7 +13,6 @@
                 <input type="text" id="username" name="username" required>
                 <button class="form-label body-text">Log In</button>
             </form>
-        </div>
-    </div>
+
 {% endblock %}
 

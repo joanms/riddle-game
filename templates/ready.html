@@ -1,6 +1,6 @@
-{% extends 'base.html' %} {% block content %}
-    <div id="main-content">
-        <div class="text-box">
+{% extends 'base.html' %} 
+{% block content %}
+
             <h2>Welcome, {{ username }}!</h2>
             <p class="body-text">You will be presented with 10 riddles, and have 
             two chances to answer each one. Each riddle&rsquo;s answer is one 
@@ -9,10 +9,10 @@
             to a leaderboard. There is no time limit.</p>
             <p class="body-text">When you're ready to start, please click the 
             button. Good luck!</p>
+            
             <form method="POST" action="/play/{{ username }}">
                 <button class="form-label body-text" action="play.html">Riddle Me!</button>
             </form>
-        </div>
-    </div>
+
 {% endblock %}
 

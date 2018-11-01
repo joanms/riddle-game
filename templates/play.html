@@ -1,8 +1,6 @@
 {% extends 'base.html' %} 
 {% block content %}
-    <div id="main-content">
-        <div class="text-box">
-            
+
             <h2>Riddle {{ riddle_number }} of 10</h2>
                 {% for riddle in riddles %} {% if ( loop.index == riddle_number|int ) %} <!--This for loop is based on code by Joke Heyndels-->
                 <p class="body-text">{{ riddle.question }}</p>
@@ -33,6 +31,4 @@
                 Score: {{ score }}
             </div>
             
-        </div>
-    </div>    
 {% endblock %}
