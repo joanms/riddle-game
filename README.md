@@ -78,6 +78,5 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 ### Acknowledgements
 
-My mentor, Chris Zielinski, gave me the idea for the project's overall structure. 
-He and my fellow student, Joke Heyndels, provided valuable feedback and advice on 
-my approach to the project.
+My mentor, Chris Zielinski, my tutor, Haley Schafer and my fellow student, Joke 
+Heyndels provided valuable feedback and advice on the project.
