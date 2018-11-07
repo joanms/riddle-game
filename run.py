@@ -38,15 +38,9 @@ def login():
             user_list = open('data/users.txt', 'a')
             user_list.write(username + '\n')
             session['user'] = username
-            start()
-            return render_template('ready.html', username=username)
+            return render_template('play.html', username=username)
     return render_template('index.html')
 
-# Instructions for the user
-@app.route('/ready')
-def ready():
-    return render_template('ready.html')
-    
 # Set the initial variables
 def start():
     session['score'] = 0
