@@ -17,20 +17,9 @@ def page_not_found(e):
 def server_error(e):
     return render_template('500.html'), 500 
     
-# Load the riddles
-def get_riddles():
-    with open('data/riddles.json', 'r') as riddle_data:
-        riddles_list = json.load(riddle_data)['riddles']
-        return riddles_list
+with open("data/riddles.json") as riddle_file:
+    RIDDLES = json.load(riddle_file)    
     
-    
-# Set the initial variables - this is based on code by Joke Heyndels
-def start():
-    session['score'] = 0
-    session['riddle_number'] = 1
-    session['attempt'] = 1
-    session['riddles'] = get_riddles()
-    return session['score'], session['riddle_number'], session['attempt'], session['riddles']
 
 @app.route('/')
 def index():
@@ -39,33 +28,53 @@ def index():
 # The user logs in    
 @app.route('/login', methods=['POST'])
 def login():
-    username = request.form['username']
-    with open('data/users.txt', 'r') as user_list:
-        current_users = user_list.read().splitlines()
-    if username in current_users:
-        flash('That username is taken. Please choose another one.')
-    else:
-        user_list = open('data/users.txt', 'a')
-        user_list.write(username + '\n')
-        session['user'] = username
-        start()
-        return render_template('ready.html', username=username)
+    if request.method == 'POST':
+        username = request.form['username']
+        with open('data/users.txt', 'r') as user_list:
+            current_users = user_list.read().splitlines()
+        if username in current_users:
+            flash('That username is taken. Please choose another one.')
+        else:
+            user_list = open('data/users.txt', 'a')
+            user_list.write(username + '\n')
+            session['user'] = username
+            start()
+            return render_template('ready.html', username=username)
     return render_template('index.html')
 
 # Instructions for the user
 @app.route('/ready')
 def ready():
     return render_template('ready.html')
+    
+# Set the initial variables
+def start():
+    session['score'] = 0
+    session['riddle_number'] = 1
+    session['attempt'] = 1
+    return render_template('play.html')
 
 # Playing the game
-@app.route('/play/<username>', methods=['POST'])
-def play(username):
+@app.route('/play', methods=['POST'])
+def play():
     if session:
         riddle_number = session['riddle_number']
-        data = session['riddles']
         score = session['score']
         attempt = session['attempt']
-        return render_template('play.html', riddles=data, riddle_number=riddle_number, score=score, attempt=attempt)
+        if request.method == 'POST':
+            session['correct_answer'] = request.form.get("correct_answer")
+            session['user_answer'] = request.form.get("user_input").lower()
+            while session['riddle_number'] < 10:
+                if session['correct_answer'] == session['user_answer']:
+                    flash("Well done!")
+                    session['question_number'] += 1
+                    session['score'] += 1
+                elif session['attempt'] == 1:
+                    flash("{} was the wrong answer. Please try again.".format(session['user_answer']))
+                else:
+                    flash("{} was the correct answer. Better luck on the next riddle.".format(session['correct_answer']))
+                    session['question_number'] += 1
+        return render_template('play.html', riddle_number=riddle_number, score=score, attempt=attempt)
     else:
         return redirect(url_for('index'))
 
@@ -74,18 +83,6 @@ def play(username):
 @app.route('/play', methods=['POST'])
 def check_answer():
     if session:
-        session['correct_answer'] = request.form.get("correct_answer")
-        session['user_answer'] = request.form.get("user_input").lower()
-        while session['riddle_number'] < 10:
-            if session['correct_answer'] == session['user_answer']:
-                flash("Well done!")
-                session['question_number'] += 1
-                session['score'] += 1
-            elif session['attempt'] == 1:
-                flash("{} was the wrong answer. Please try again.".format(session['user_answer']))
-            else:
-                flash("{} was the correct answer. Better luck on the next riddle.".format(session['correct_answer']))
-                session['question_number'] += 1
             return redirect(url_for("play"))
     else:
         return redirect(url_for("index"))
