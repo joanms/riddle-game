@@ -38,16 +38,18 @@ def login():
             user_list = open('data/users.txt', 'a')
             user_list.write(username + '\n')
             session['user'] = username
-            return render_template('play.html', username=username)
+            session['score'] = 0
+            session['riddle_number'] = 0
+            session['attempt'] = 1
+            new_riddle = RIDDLES[session["riddle_number"]]
+            return render_template('play.html', username=username, question=new_riddle["question"], 
+            riddle_number = session['riddle_number'], score = session['score'], attempt = session['attempt'])
     return render_template('index.html')
 
 
 # Playing the game
 @app.route('/play', methods=['GET', 'POST'])
 def play():
-    session['score'] = 0
-    session['riddle_number'] = 1
-    session['attempt'] = 1
     if request.method == 'POST' and session['riddle_num'] < 10:
         current_riddle = RIDDLES[session['riddle_number']]
         while session['riddle_number'] < 10:
