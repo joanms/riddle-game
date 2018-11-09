@@ -78,5 +78,5 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 ### Acknowledgements
 
-My mentor, Chris Zielinski, my tutor, Haley Schafer and my fellow student, Joke 
-Heyndels provided valuable feedback and advice on the project.
+My fellow student, Joke Heyndels, my tutors, Nakita McCool and Haley Schafer, and 
+my mentor, Chris Zielinski provided valuable feedback and advice on the project.
