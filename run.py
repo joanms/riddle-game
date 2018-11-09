@@ -50,7 +50,7 @@ def login():
 # Playing the game
 @app.route('/play', methods=['GET', 'POST'])
 def play():
-    if request.method == 'POST' and session['riddle_num'] < 10:
+    if request.method == 'POST' and session['riddle_number'] < 10:
         current_riddle = RIDDLES[session['riddle_number']]
         while session['riddle_number'] < 10:
             if request.form['user_input'].lower() == current_riddle['answer']:
