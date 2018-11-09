@@ -69,7 +69,6 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 
 ## Credits
-
 ### Content
 - The riddles are from the [Riddle Solution Answer Database](https://riddle.solutions/).
 
@@ -77,6 +76,5 @@ In addition, if it is not obvious, you should also describe how to run your code
 - The background image is a free stock image from [Pixabay](https://pixabay.com/).
 
 ### Acknowledgements
-
 My fellow student, Joke Heyndels, my tutors, Nakita McCool and Haley Schafer, and 
 my mentor, Chris Zielinski provided valuable feedback and advice on the project.
