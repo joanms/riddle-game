@@ -20,10 +20,9 @@ def server_error(e):
 with open('data/riddles.json') as riddle_file:
     RIDDLES = json.load(riddle_file)    
     
-@app.route('/', methods=["GET", "POST"])
+
+@app.route('/')
 def index():
-    """Main page with instructions"""
-    # Handle POST request
     if request.method == 'POST':
         username = request.form['username']
         with open('data/users.txt', 'r') as user_list:
@@ -34,8 +33,9 @@ def index():
             user_list = open('data/users.txt', 'a')
             user_list.write(username + '\n')
             session['user'] = username
-            return redirect(request.form["username"])
+            redirect(url_for("index"))
     return render_template('index.html')
+
 
 # Playing the game
 @app.route('/<username>', methods=['GET', 'POST'])
@@ -43,8 +43,7 @@ def play(username):
     session['score'] = 0
     session['riddle_number'] = 0
     session['attempt'] = 1
-    correct_answer = 'i-am-a-correct-answer'
-    new_riddle = RIDDLES[session["riddle_number"]]
+    current_riddle = RIDDLES[session["riddle_number"]]
     if request.method == 'POST' and session['riddle_number'] < 10:
         current_riddle = RIDDLES[session['riddle_number']]
         while session['riddle_number'] < 10:
@@ -57,8 +56,7 @@ def play(username):
             else:
                 flash('{} was the correct answer. Better luck on the next riddle.'.format(correct_answer))
                 session['riddle_number'] += 1
-        return render_template('play.html')
-    return render_template('play.html', question=new_riddle["question"], username=username,
+    return render_template('play.html', question=current_riddle["question"], username=username,
     riddle_number = session['riddle_number'], score = session['score'], attempt = session['attempt'])
 
 @app.route('/leaderboard')
