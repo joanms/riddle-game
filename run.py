@@ -43,8 +43,8 @@ def play(username):
     session['score'] = 0
     session['riddle_number'] = 0
     session['attempt'] = 1
-    correct_answer = 'i-am-a-correct-answer'
-    new_riddle = RIDDLES[session["riddle_number"]]
+    current_riddle = RIDDLES[session["riddle_number"]]
+    correct_answer = current_riddle['answer']
     if request.method == 'POST' and session['riddle_number'] < 10:
         current_riddle = RIDDLES[session['riddle_number']]
         while session['riddle_number'] < 10:
@@ -58,7 +58,7 @@ def play(username):
                 flash('{} was the correct answer. Better luck on the next riddle.'.format(correct_answer))
                 session['riddle_number'] += 1
         return render_template('play.html')
-    return render_template('play.html', question=new_riddle["question"], username=username,
+    return render_template('play.html', question=current_riddle["question"], username=username,
     riddle_number = session['riddle_number'], score = session['score'], attempt = session['attempt'])
 
 @app.route('/leaderboard')
