@@ -63,7 +63,7 @@ h1 {
 }
 
 h2 {
-    font-family: "Oswald", sans-serif;
+    font-family: "Lobster", cursive;
     font-weight: 700;
     font-size: 40px;
     text-align: center;
@@ -72,7 +72,7 @@ h2 {
 .body-text {
     font-family: "Oswald", sans-serif;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 20px;
 }
 
 #flash {
