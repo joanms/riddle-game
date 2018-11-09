@@ -45,10 +45,10 @@ def play(username):
     session['attempt'] = 1
     current_riddle = RIDDLES[session["riddle_number"]]
     correct_answer = current_riddle['answer']
-    if request.method == 'POST' and session['riddle_number'] < 10:
-        current_riddle = RIDDLES[session['riddle_number']]
+    if request.method == 'POST':
+        user_answer = request.form['user_input'].lower()
         while session['riddle_number'] < 10:
-            if request.form['user_input'].lower() == current_riddle['answer']:
+            if user_answer == correct_answer:
                 flash('Well done!')
                 session['riddle_number'] += 1
                 session['score'] += 1
@@ -57,7 +57,6 @@ def play(username):
             else:
                 flash('{} was the correct answer. Better luck on the next riddle.'.format(correct_answer))
                 session['riddle_number'] += 1
-        return render_template('play.html')
     return render_template('play.html', question=current_riddle["question"], username=username,
     riddle_number = session['riddle_number'], score = session['score'], attempt = session['attempt'])
 
