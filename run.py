@@ -22,7 +22,9 @@ with open("data/riddles.json") as riddle_file:
     
 @app.route("/", methods=["GET", "POST"])
 def index():
-    """Main page with instructions"""
+    
+    """The user logs in"""
+    
     # Handle POST request
     if request.method == "POST":
         username = request.form["username"]
@@ -40,25 +42,28 @@ def index():
 # Playing the game
 @app.route("play/<username>", methods=["GET", "POST"])
 def play(username):
+    
+    """Initial variables"""
+    
     session["score"] = 0
     session["riddle_number"] = 0
     session["attempt"] = 1
     if request.method == "POST":
         current_riddle = RIDDLES[session["riddle_number"]]
+        
+        """Checking the user's answer"""
+        
         if request.form["user_input"].lower() == current_riddle["answer"]:
             flash("Well done!")
             session["riddle_number"] += 1
             session["score"] += 1
-            return redirect(url_for("play"))
         elif session["attempt"] == 1:
             flash("That was the wrong answer. Please try again.")
-            return redirect(url_for("play"))
         else:
             flash("{} was the correct answer. Better luck on the next riddle.".format(current_riddle["answer"]))
             session["riddle_number"] += 1
-            return redirect(url_for("play"))
-    return render_template("play.html", question=current_riddle["question"], username=username,
-    riddle_number = session["riddle_number"], score = session["score"], attempt = session["attempt"])
+        return render_template("play.html", question=current_riddle["question"], username=username,
+        riddle_number = session["riddle_number"], score = session["score"], attempt = session["attempt"])
 
 @app.route("/leaderboard")
 def leaderboard():
