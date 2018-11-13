@@ -11,13 +11,13 @@
             <h2>Riddle {{ riddle_number }} of 10</h2>
                 {% for riddle in riddle_list %} {% if ( loop.index == riddle_number|int ) %} <!--Start of loop through riddles-->
                 <p class="body-text">{{ riddle.question }}</p>
+                {% endif %} {% endfor %} <!--End of loop through riddles-->
             
             <form method="POST">
                 <label for="answer" class="form-label body-text">Answer:</label>    
                 <input type="text" name="user_input" id="user_input" required>
                 <button class="submit body-text" class="form-label body-text">Submit Answer</button>
             </form>
-                {% endif %} {% endfor %} <!--End of loop through riddles-->
 
             {% with messages = get_flashed_messages() %} {% if messages %}
                 {% for message in messages %}
