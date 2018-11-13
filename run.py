@@ -54,7 +54,7 @@ def play(username):
             flash("That was the wrong answer. Please try again.")
             return redirect(url_for("play"))
         else:
-            flash("{} was the correct answer. Better luck on the next riddle.".format(correct_answer))
+            flash("{} was the correct answer. Better luck on the next riddle.".format(current_riddle["answer"]))
             session["riddle_number"] += 1
             return redirect(url_for("play"))
     return render_template("play.html", question=current_riddle["question"], username=username,
