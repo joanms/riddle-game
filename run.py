@@ -58,7 +58,6 @@ def play(username):
             else:
                 flash('{} was the correct answer. Better luck on the next riddle.'.format(correct_answer))
                 session['riddle_number'] += 1
-        return render_template('leaderboard.html')
     return render_template('play.html', question=current_riddle["question"], username=username,
     riddle_number = session['riddle_number'], score = session['score'], attempt = session['attempt'])
 
