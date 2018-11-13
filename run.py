@@ -18,7 +18,7 @@ def server_error(e):
     return render_template("500.html"), 500 
     
 with open("data/riddles.json") as riddle_file:
-    RIDDLES = json.load(riddle_file)    
+    riddle_list = json.load(riddle_file)    
   
     
 @app.route("/", methods=["GET", "POST"])
@@ -44,7 +44,7 @@ def play(username):
     session['score'] = 0
     session['riddle_number'] = 0
     session['attempt'] = 1
-    current_riddle = RIDDLES[session["riddle_number"]]
+    current_riddle = riddle_list[session["riddle_number"]]
     correct_answer = current_riddle["answer"]
     if request.method == 'POST' and session['riddle_number'] < 10:
         user_answer = request.form['user_input'].lower()
