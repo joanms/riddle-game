@@ -42,7 +42,7 @@ def index():
 @app.route('/<username>', methods=['GET', 'POST'])
 def play(username):
     session['score'] = 0
-    session['riddle_number'] = 0
+    session['riddle_number'] = 1
     session['attempt'] = 1
     current_riddle = riddle_list[session["riddle_number"]]
     correct_answer = current_riddle["answer"]
