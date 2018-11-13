@@ -9,7 +9,7 @@
             to a leaderboard. There is no time limit.</p>
 
             <h2>Riddle {{ riddle_number }} of 10</h2>
-                {% for riddle in riddles %} {% if ( loop.index == riddle_number|int ) %} <!--Start of loop through riddles-->
+                {% for riddle in riddle_list %} {% if ( loop.index == riddle_number|int ) %} <!--Start of loop through riddles-->
                 <p class="body-text">{{ riddle.question }}</p>
             
             <form method="POST">
