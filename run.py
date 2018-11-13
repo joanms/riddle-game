@@ -19,10 +19,10 @@ def server_error(e):
     
 with open("data/riddles.json") as riddle_file:
     RIDDLES = json.load(riddle_file)    
+  
     
 @app.route("/", methods=["GET", "POST"])
 def index():
-    
     """The user logs in"""
     """Handle POST request"""
     if request.method == "POST":
@@ -39,28 +39,27 @@ def index():
     return render_template("index.html")
 
 # Playing the game
-@app.route("play/<username>", methods=["GET", "POST"])
+@app.route('/<username>', methods=['GET', 'POST'])
 def play(username):
-    
-    """Initial variables"""
-    session["score"] = 0
-    session["riddle_number"] = 0
-    session["attempt"] = 1
-    if request.method == "POST":
-        current_riddle = RIDDLES[session["riddle_number"]]
-        
-        """Checking the user's answer"""
-        if request.form["user_input"].lower() == current_riddle["answer"]:
-            flash("Well done!")
-            session["riddle_number"] += 1
-            session["score"] += 1
-        elif session["attempt"] == 1:
-            flash("That was the wrong answer. Please try again.")
-        else:
-            flash("{} was the correct answer. Better luck on the next riddle.".format(current_riddle["answer"]))
-            session["riddle_number"] += 1
-        return render_template("play.html", question=current_riddle["question"], username=username,
-        riddle_number = session["riddle_number"], score = session["score"], attempt = session["attempt"])
+    session['score'] = 0
+    session['riddle_number'] = 0
+    session['attempt'] = 1
+    current_riddle = RIDDLES[session["riddle_number"]]
+    correct_answer = current_riddle["answer"]
+    if request.method == 'POST' and session['riddle_number'] < 10:
+        while session['riddle_number'] < 10:
+            if request.form['user_input'].lower() == correct_answer:
+                flash('Well done!')
+                session['riddle_number'] += 1
+                session['score'] += 1
+            elif session['attempt'] == 1:
+                flash('That was the wrong answer. Please try again.')
+            else:
+                flash('{} was the correct answer. Better luck on the next riddle.'.format(correct_answer))
+                session['riddle_number'] += 1
+        return render_template('leaderboard.html')
+    return render_template('play.html', question=current_riddle["question"], username=username,
+    riddle_number = session['riddle_number'], score = session['score'], attempt = session['attempt'])
 
 @app.route("/leaderboard")
 def leaderboard():
