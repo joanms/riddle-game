@@ -24,8 +24,7 @@ with open("data/riddles.json") as riddle_file:
 def index():
     
     """The user logs in"""
-    
-    # Handle POST request
+    """Handle POST request"""
     if request.method == "POST":
         username = request.form["username"]
         with open("data/users.txt", "r") as user_list:
@@ -44,7 +43,6 @@ def index():
 def play(username):
     
     """Initial variables"""
-    
     session["score"] = 0
     session["riddle_number"] = 0
     session["attempt"] = 1
@@ -52,7 +50,6 @@ def play(username):
         current_riddle = RIDDLES[session["riddle_number"]]
         
         """Checking the user's answer"""
-        
         if request.form["user_input"].lower() == current_riddle["answer"]:
             flash("Well done!")
             session["riddle_number"] += 1
