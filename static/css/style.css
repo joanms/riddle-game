@@ -15,7 +15,7 @@ Black
 .menuitem {
     font-family: "Oswald", sans-serif;
     font-weight: 400;
-    font-size: 25px;
+    font-size: 20px;
     display: inline-block;
     color: black;
 }
@@ -79,34 +79,9 @@ h2 {
 
 /*Media Queries*/
 
-@media(max-width: 1050px) {
 
-    h1 {
-        font-size: 50px;
-    }
-    
-    h2 {
-        font-size: 25px;
-    }
-    
-    .body-text {
-        font-size: 15px;
-    }
-
-    .menuitem {
-        font-size: 15px;
-    }
-    
-    .navbar {
-    display: inline-block;
-    text-align: left;
-    }
-}
-
-@media(max-width: 767px) {
+@media(max-width: 991px) {
     .navbar {
     text-align: center;
-    font-size: 12px;
     }
-
 }
