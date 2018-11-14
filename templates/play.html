@@ -9,10 +9,8 @@
             to a leaderboard. There is no time limit.</p>
 
             <h2>Riddle {{ riddle_number }} of 10</h2>
-                {% for riddle in riddle_list %} {% if ( loop.index == riddle_number|int ) %} <!--Start of loop through riddles-->
-                <p class="body-text">{{ riddle.question }}</p>
-                {% endif %} {% endfor %} <!--End of loop through riddles-->
-            
+                <p class="body-text">{{ question }}</p>
+
             <form method="POST">
                 <label for="answer" class="form-label body-text">Answer:</label>    
                 <input type="text" name="user_input" id="user_input" required>
