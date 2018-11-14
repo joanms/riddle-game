@@ -43,6 +43,7 @@ def index():
 # Playing the game
 @app.route('/<username>', methods=['GET', 'POST'])
 def play(username):
+    data = riddle_list
     session['score'] = 0
     session['riddle_number'] = 0
     session["riddle_attempts"] = max_attempts
@@ -61,7 +62,7 @@ def play(username):
         else:
             session["riddle_attempts"] -= 1
             flash('{} was the wrong answer. Please try again.'.format(user_answer))
-    return render_template('play.html', question=current_riddle["question"], username=username,
+    return render_template('play.html', riddle_list=data, question=current_riddle["question"], username=username,
     riddle_number = session['riddle_number'], score = session['score'])
 
 @app.route("/leaderboard")

@@ -9,7 +9,9 @@
             to a leaderboard. There is no time limit.</p>
 
             <h2>Riddle {{ riddle_number + 1 }} of 10</h2>
-                <p class="body-text">{{ question }}</p>
+                {% for riddle in riddle_list %}
+                <p class="body-text">{{ riddle.question }}</p>
+                {% endfor %}
 
             <form method="POST">
                 <label for="answer" class="form-label body-text">Answer:</label>    
