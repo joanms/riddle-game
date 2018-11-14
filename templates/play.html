@@ -8,7 +8,7 @@
             When you have answered or attempted all 10, your score will be added 
             to a leaderboard. There is no time limit.</p>
 
-            <h2>Riddle {{ riddle_number }} of 10</h2>
+            <h2>Riddle {{ riddle_number + 1 }} of 10</h2>
                 <p class="body-text">{{ question }}</p>
 
             <form method="POST">
@@ -22,10 +22,6 @@
                 <p class="body-text" id="flash">{{ message }}</p>
                 {% endfor %}
             {% endif %} {% endwith %}
-
-            <div class = "body-text" id="attempt">
-                Attempt {{ attempt }} of 2
-            </div>
 
             <div class = "body-text" id="score">
                 Score: {{ score }}
