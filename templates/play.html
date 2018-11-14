@@ -9,15 +9,14 @@
             to a leaderboard. There is no time limit.</p>
 
             <h2>Riddle {{ riddle_number + 1 }} of 10</h2>
-                {% for riddle in riddle_list %}
-                <p class="body-text">{{ riddle.question }}</p>
-                {% endfor %}
+                <p class="body-text">{{ question }}</p>
 
             <form method="POST">
                 <label for="answer" class="form-label body-text">Answer:</label>    
                 <input type="text" name="user_input" id="user_input" required>
-                <button class="submit body-text" class="form-label body-text">Submit Answer</button>
+                <button class="submit body-text" class="form-label body-text" value="user_input">Submit Answer</button>
             </form>
+            
 
             {% with messages = get_flashed_messages() %} {% if messages %}
                 {% for message in messages %}

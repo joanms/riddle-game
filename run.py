@@ -53,10 +53,14 @@ def play(username):
         user_answer = request.form['user_input'].lower()
         if user_answer == correct_answer:
             session['riddle_number'] += 1
+            current_riddle = riddle_list[session["riddle_number"]]
+            correct_answer = current_riddle["answer"]
             session['score'] += 1
             flash('Well done!')
         elif not session["riddle_attempts"]:
             session['riddle_number'] += 1
+            current_riddle = riddle_list[session["riddle_number"]]
+            correct_answer = current_riddle["answer"]
             session['attempt'] = 1
             flash('{} was the correct answer. Better luck on the next riddle.'.format(correct_answer))
         else:
