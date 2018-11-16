@@ -17,19 +17,20 @@ def page_not_found(e):
 def server_error(e):
     return render_template("500.html"), 500 
     
+# Define the data source
 with open("data/riddles.json") as riddle_file:
     riddle_list = json.load(riddle_file)    
     
+# Set the initial session variables
 def start():
     session['score'] = 0
     session['riddle_number'] = 0
     session["riddle_attempt"] = 1
     return session['score'], session['riddle_number'], session['riddle_attempt']
 
+# The user logs in
 @app.route("/", methods=["GET", "POST"])
 def index():
-    """The user logs in"""
-    """Handle POST request"""
     if request.method == "POST":
         username = request.form["username"]
         with open("data/users.txt", "r") as user_list:
@@ -53,10 +54,10 @@ def play(username):
     if request.method == 'POST':
         user_answer = request.form['user_input'].lower()
 
-        """If the user answers correctly, the score increments and the next riddle displays.""" 
-        """If they answer incorrectly on the first attempt they get another chance"""
-        """If they answer incorrectly again, the next riddle displays"""
-
+        
+        
+        
+        # If the user answers correctly, the score increments and the next riddle displays
         if user_answer == correct_answer:
             if session['riddle_number'] < 9:
                 session['riddle_number'] += 1
@@ -66,9 +67,13 @@ def play(username):
                 flash('Well done!')
             else:
                 return redirect(url_for("leaderboard"))
+                
+        # If the user answers incorrectly on the first attempt they get another chance        
         elif session["riddle_attempt"] < 2:
             session["riddle_attempt"] += 1
             flash('You answered "{}", which was the wrong answer. Please try again.'.format(user_answer))
+            
+        # If the user answers incorrectly a second time, the next riddle displays   
         else:
             if session['riddle_number'] < 9:
                 session['riddle_number'] += 1
