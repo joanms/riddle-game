@@ -20,6 +20,12 @@ def server_error(e):
 with open("data/riddles.json") as riddle_file:
     riddle_list = json.load(riddle_file)    
     
+def start():
+    session['score'] = 0
+    session['riddle_number'] = 0
+    session["riddle_attempt"] = 1
+    return session['score'], session['riddle_number'], session['riddle_attempt']
+
 @app.route("/", methods=["GET", "POST"])
 def index():
     """The user logs in"""
@@ -34,6 +40,7 @@ def index():
             user_list = open("data/users.txt", "a")
             user_list.write(username + "\n")
             session["user"] = username
+            start()
             return redirect(request.form["username"])
     return render_template("index.html")
 
@@ -41,9 +48,6 @@ def index():
 @app.route('/<username>', methods=['GET', 'POST'])
 def play(username):
     data = riddle_list
-    session['score'] = 0
-    session['riddle_number'] = 0
-    session["riddle_attempts"] = 2
     current_riddle = riddle_list[session["riddle_number"]]
     correct_answer = current_riddle["answer"]
     if request.method == 'POST' and session['riddle_number'] < 10:
@@ -56,18 +60,17 @@ def play(username):
         if user_answer == correct_answer:
             session['riddle_number'] += 1
             current_riddle = riddle_list[session["riddle_number"]]
-            correct_answer = current_riddle["answer"]
             session['score'] += 1
+            session["riddle_attempt"] = 1
             flash('Well done!')
-        elif session["riddle_attempts"] > 0:
-            session["riddle_attempts"] -= 1
-            flash('{} was the wrong answer. Please try again.'.format(user_answer))
+        elif session["riddle_attempt"] < 2:
+            session["riddle_attempt"] += 1
+            flash('You answered "{}", which was the wrong answer. Please try again.'.format(user_answer))
         else:
             session['riddle_number'] += 1
             current_riddle = riddle_list[session["riddle_number"]]
-            correct_answer = current_riddle["answer"]
-            session['attempt'] = 1
-            flash('{} was the correct answer. Better luck on the next riddle.'.format(correct_answer))
+            session['riddle_attempt'] = 1
+            flash('You answered "{}" but "{}" was the correct answer. Better luck on the next riddle.'.format(user_answer, correct_answer))
             
     return render_template('play.html', riddle_list=data, question=current_riddle["question"], username=username,
     riddle_number = session['riddle_number'], score = session['score'])
