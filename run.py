@@ -65,7 +65,7 @@ def play(username):
                 session["riddle_attempt"] = 1
                 flash('Well done!')
             else:
-                flash("Game over!")
+                return redirect(url_for("leaderboard"))
         elif session["riddle_attempt"] < 2:
             session["riddle_attempt"] += 1
             flash('You answered "{}", which was the wrong answer. Please try again.'.format(user_answer))
@@ -76,7 +76,7 @@ def play(username):
                 session['riddle_attempt'] = 1
                 flash('You answered "{}" but "{}" was the correct answer. Better luck on the next riddle.'.format(user_answer, correct_answer))
             else:
-                flash("Game over!")
+                return redirect(url_for("leaderboard"))
 
     return render_template('play.html', riddle_list=data, question=current_riddle["question"], username=username,
     riddle_number = session['riddle_number'], score = session['score'])
