@@ -57,7 +57,7 @@ def play(username):
         # Iterate through the riddles and then display the leaderboard
         if session['riddle_number'] < 9:
             
-        # If the user answers correctly, the score increments and the next riddle displays
+            # If the user answers correctly, the score increments and the next riddle displays
             if user_answer == correct_answer:
                 session['riddle_number'] += 1
                 current_riddle = riddle_list[session["riddle_number"]]
@@ -72,16 +72,24 @@ def play(username):
             
             # If the user answers incorrectly a second time, the next riddle displays   
             else:
-                if session['riddle_number'] < 9:
-                    session['riddle_number'] += 1
-                    current_riddle = riddle_list[session["riddle_number"]]
-                    session['riddle_attempt'] = 1
-                    flash('You answered "{}" but "{}" was the correct answer. Better luck on the next riddle.'.format(user_answer, correct_answer))
+                session['riddle_number'] += 1
+                current_riddle = riddle_list[session["riddle_number"]]
+                session['riddle_attempt'] = 1
+                flash('You answered "{}" but "{}" was the correct answer. Better luck on the next riddle.'.format(user_answer, correct_answer))
+
         else:
-            return redirect(url_for("leaderboard"))
+            return redirect(url_for("write_to_leaderboard"))
 
     return render_template('play.html', riddle_list=data, question=current_riddle["question"], username=username,
     riddle_number = session['riddle_number'], score = session['score'])
+    
+@app.route("/write_to_leaderboard")
+def write_to_leaderboard():
+    if session:
+        if session['riddle_number'] >= 9:
+            with open("data/leaderboard.txt", "a") as leaderboard:
+                leaderboard.write('{}:{}\n'.format(str(session["user"]), str(session['score'])))
+            
 
 @app.route("/leaderboard")
 def leaderboard():
