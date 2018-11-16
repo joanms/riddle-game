@@ -51,6 +51,11 @@ def play(username):
     correct_answer = current_riddle["answer"]
     if request.method == 'POST' and session['riddle_number'] < 10:
         user_answer = request.form['user_input'].lower()
+
+        """If the user answers correctly, the score increments and the next riddle displays.""" 
+        """If they answer incorrectly on the first attempt they get another chance"""
+        """If they answer incorrectly again, the next riddle displays"""
+
         if user_answer == correct_answer:
             session['riddle_number'] += 1
             current_riddle = riddle_list[session["riddle_number"]]
