@@ -54,10 +54,7 @@ def play(username):
     if request.method == 'POST':
         user_answer = request.form['user_input'].lower()
 
-        
-        
-        
-        # If the user answers correctly, the score increments and the next riddle displays
+        # If the user answers correctly, the score increments and the next riddle displays unless all riddles have been answered
         if user_answer == correct_answer:
             if session['riddle_number'] < 9:
                 session['riddle_number'] += 1
@@ -73,7 +70,7 @@ def play(username):
             session["riddle_attempt"] += 1
             flash('You answered "{}", which was the wrong answer. Please try again.'.format(user_answer))
             
-        # If the user answers incorrectly a second time, the next riddle displays   
+        # If the user answers incorrectly a second time, the next riddle displays unless all riddles have been answered   
         else:
             if session['riddle_number'] < 9:
                 session['riddle_number'] += 1
