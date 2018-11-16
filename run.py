@@ -78,7 +78,7 @@ def play(username):
                 flash('You answered "{}" but "{}" was the correct answer. Better luck on the next riddle.'.format(user_answer, correct_answer))
 
         else:
-            return redirect(url_for("write_to_leaderboard"))
+            return redirect(url_for("leaderboard"))
 
     return render_template('play.html', riddle_list=data, question=current_riddle["question"], username=username,
     riddle_number = session['riddle_number'], score = session['score'])
@@ -87,13 +87,25 @@ def play(username):
 def write_to_leaderboard():
     if session:
         if session['riddle_number'] >= 9:
-            with open("data/leaderboard.txt", "a") as leaderboard:
+            with open("data/leaders.txt", "a") as leaderboard:
                 leaderboard.write('{}:{}\n'.format(str(session["user"]), str(session['score'])))
+
+# This function is by my mentor, Chris Zielinski
+def get_leaders():
+    with open('data/leaders.txt') as leaders:
+        leaders = [line for line in leaders.readlines()[1:]]
+        sorted_leaders = []
+        for leader in leaders:
+            tupe = (leader.split(':')[0].strip(), int(leader.split(':')[1].strip()))
+            sorted_leaders.append(tupe)
             
+        # Sort leaders on the 2nd elem of the tuple, reverse the sort, then return the top 10
+        return sorted(sorted_leaders, key=lambda x: x[1])[::-1][:10]            
 
 @app.route("/leaderboard")
 def leaderboard():
-    return render_template("leaderboard.html")
+    leaders = get_leaders()
+    return render_template("leaderboard.html", leaders=leaders)
     
 
 if __name__ == "__main__":
