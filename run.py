@@ -17,11 +17,8 @@ def page_not_found(e):
 def server_error(e):
     return render_template("500.html"), 500 
     
-max_attempts = 2
-
 with open("data/riddles.json") as riddle_file:
     riddle_list = json.load(riddle_file)    
-  
     
 @app.route("/", methods=["GET", "POST"])
 def index():
@@ -46,7 +43,7 @@ def play(username):
     data = riddle_list
     session['score'] = 0
     session['riddle_number'] = 0
-    session["riddle_attempts"] = max_attempts
+    session["riddle_attempts"] = 2
     current_riddle = riddle_list[session["riddle_number"]]
     correct_answer = current_riddle["answer"]
     if request.method == 'POST' and session['riddle_number'] < 10:
@@ -62,15 +59,16 @@ def play(username):
             correct_answer = current_riddle["answer"]
             session['score'] += 1
             flash('Well done!')
-        elif not session["riddle_attempts"]:
+        elif session["riddle_attempts"] > 0:
+            session["riddle_attempts"] -= 1
+            flash('{} was the wrong answer. Please try again.'.format(user_answer))
+        else:
             session['riddle_number'] += 1
             current_riddle = riddle_list[session["riddle_number"]]
             correct_answer = current_riddle["answer"]
             session['attempt'] = 1
             flash('{} was the correct answer. Better luck on the next riddle.'.format(correct_answer))
-        else:
-            session["riddle_attempts"] -= 1
-            flash('{} was the wrong answer. Please try again.'.format(user_answer))
+            
     return render_template('play.html', riddle_list=data, question=current_riddle["question"], username=username,
     riddle_number = session['riddle_number'], score = session['score'])
 
