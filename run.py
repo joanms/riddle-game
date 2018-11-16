@@ -50,7 +50,7 @@ def play(username):
     data = riddle_list
     current_riddle = riddle_list[session["riddle_number"]]
     correct_answer = current_riddle["answer"]
-    if request.method == 'POST' and session['riddle_number'] < 10:
+    if request.method == 'POST':
         user_answer = request.form['user_input'].lower()
 
         """If the user answers correctly, the score increments and the next riddle displays.""" 
@@ -58,20 +58,26 @@ def play(username):
         """If they answer incorrectly again, the next riddle displays"""
 
         if user_answer == correct_answer:
-            session['riddle_number'] += 1
-            current_riddle = riddle_list[session["riddle_number"]]
-            session['score'] += 1
-            session["riddle_attempt"] = 1
-            flash('Well done!')
+            if session['riddle_number'] < 9:
+                session['riddle_number'] += 1
+                current_riddle = riddle_list[session["riddle_number"]]
+                session['score'] += 1
+                session["riddle_attempt"] = 1
+                flash('Well done!')
+            else:
+                flash("Game over!")
         elif session["riddle_attempt"] < 2:
             session["riddle_attempt"] += 1
             flash('You answered "{}", which was the wrong answer. Please try again.'.format(user_answer))
         else:
-            session['riddle_number'] += 1
-            current_riddle = riddle_list[session["riddle_number"]]
-            session['riddle_attempt'] = 1
-            flash('You answered "{}" but "{}" was the correct answer. Better luck on the next riddle.'.format(user_answer, correct_answer))
-            
+            if session['riddle_number'] < 9:
+                session['riddle_number'] += 1
+                current_riddle = riddle_list[session["riddle_number"]]
+                session['riddle_attempt'] = 1
+                flash('You answered "{}" but "{}" was the correct answer. Better luck on the next riddle.'.format(user_answer, correct_answer))
+            else:
+                flash("Game over!")
+
     return render_template('play.html', riddle_list=data, question=current_riddle["question"], username=username,
     riddle_number = session['riddle_number'], score = session['score'])
 
