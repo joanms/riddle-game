@@ -1,6 +1,10 @@
 {% extends 'base.html' %} 
 {% block content %}
 
+            <h2>Game Over!</h2>
+            <p class="body-text">The correct answer to the last riddle was "{{ correct_answer }}". 
+            Your score is {{ score }}. Let's see how you compare to other players.</p>
+
             <h2>Leaderboard</h2>
             {% for leader in leaders %}
             <p class="body-text">{{loop.index}}. {{ leader.0 }}: {{ leader.1 }} points</p>
