@@ -107,9 +107,16 @@ def get_leaders():
 
 @app.route('/leaderboard')
 def leaderboard():
-    current_riddle = riddle_list[session['riddle_number']]
     leaders = get_leaders()
-    return render_template('leaderboard.html', leaders=leaders, score = session['score'], correct_answer=current_riddle['answer'])
+    
+    # If a session is in progress, the leaderboard page includes the answer to the last question and the player's score
+    if session:
+        current_riddle = riddle_list[session['riddle_number']]
+        return render_template('leaderboard.html', leaders=leaders, score = session['score'], correct_answer=current_riddle['answer'])
+        
+    # If a session is not in progress, the leaderboard page just shows the top-ranked players
+    else:
+        return render_template('leaderboard.html', leaders=leaders)
     
 
 if __name__ == '__main__':
