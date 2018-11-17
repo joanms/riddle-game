@@ -11,13 +11,13 @@ Please [click here](https://www.lucidchart.com/invitations/accept/f3b7e96b-17bc-
 ### User Stories
 
 As a user, I want to:
-- Play a game with clear, intuitive rules.
+- **Play a game with clear, intuitive rules.**
 Each step in the game, from login through to the end, is explained in clear and succinct on-screen messages.
 
-- Get clear, immediate feedback on my progress.
+- **Get clear, immediate feedback on my progress.**
 Each time the user answers a question, a message appears telling them whether or not they got it right and what the next step is.
 
-- See how I compare to other players.
+- **See how I compare to other players.**
 There is a link to the leaderboard at the top of each page, and the user is encouraged to check it when they've finished the game.
 
 ### Design
@@ -30,17 +30,19 @@ the same orange when the user hovers over them. The green background of the head
 ## Features
  
 ### Existing Features
-- *Login page* where the user can enter a username and start the game.
-- *Sessions* to store data about the game and the user for each instance of gameplay.
-- *Instructions* on the gameplay page explaining the rules and what the user can expect.
-- *Flashed messages* to tell the user when they have got something wrong and congratulate them when they answer a riddle correctly.
-- *Answer form* to input their answers to the riddles.
-- *Leaderboard* ranking the users so that they can see how they compare to other players.
 
-### Features Left to Implement
-- *Secure user authentication, using passwords.* This is out of the scope of this module.
-- *Persisting data.* This is difficult to achieve on Heroku. 
-- *Real-time interaction between users.* This can be done with js polling or websockets, but is not essential for this project.
+- **Login page** where the user can enter a username and start the game.
+- **Sessions** to store data about the game and the user for each instance of gameplay.
+- **Instructions** on the gameplay page explaining the rules and what the user can expect.
+- **Flashed messages** to tell the user when they have got something wrong and congratulate them when they answer a riddle correctly.
+- **Answer form** to input their answers to the riddles.
+- **Leaderboard** ranking the users so that they can see how they compare to other players.
+
+### Feature Left to Implement
+
+- **The option to return to the game with an existing username.** Without secure user authentication, which is out of the scope of this 
+module, there's no easy way to differentiate between a returning user and a user who has chosen the same username as another user. 
+Consequently, users must choose a new username each time they log in.
 
 
 ## Technologies Used
@@ -49,7 +51,7 @@ the same orange when the user hovers over them. The green background of the head
 - **[CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)** was used to style the content.
 - **[Bootstrap](https://getbootstrap.com/)** was used to simplify the layout and responsiveness.
 - **[Python](https://www.python.org/)** was used to write the game logic.
-- **[Flask](http://flask.pocoo.org/)** was used to make the Python code more elegant and efficient.
+- **[Flask](http://flask.pocoo.org/)** was used create a session for each login, route through the game and render HTML templates.
 
 
 ## Testing
@@ -57,9 +59,11 @@ the same orange when the user hovers over them. The green background of the head
 In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
 
 ### Automated Tests
+
 Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
 
 ### Manual Tests
+
 1. Login:
     1. Go to the "Login" page
     2. Enter a new username and click the Login button. 
@@ -88,15 +92,18 @@ Whenever it is feasible, prefer to automate your tests, and if you've done so, p
     3. Ensure that the top 10 usernames and scores are correct, and listed in descending order of score.
 
 4. Cross-browser and Device Compatibility
-    1. Play the game on Chrome, Firefox, Opera and Edge browsers to ensure that it works on all of them.
-    2. Play the game on an iPad and a Samsung Galaxy S7 to ensure that it works on mobile devices.
+    1. Play the game on Chrome, Edge, Firefox and Opera browsers to ensure that it works on all of them.
+    2. Play the game on a tablet computer and a smartphone to ensure that it works on mobile devices.
 
-
-In addition, you should mention in this section how your project looks and works on different browsers and screen sizes.
+5. Responsiveness
+    1. Check the game in responsive mode with Chrome Developer Tools to ensure that the size and position of elements adjusts correctly.
+    2. Check the game on a tablet computer and a smartphone to ensure that it displays correctly. On desktop devices, the navbar appears 
+    at the top right of the page. On mobile devices, it appears below the main heading, and the size of all text is reduced to avoid overflow.
 
 You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
 
 If this section grows too long, you may want to split it off into a separate file and link to it from here.
+
 
 ## Deployment
 
@@ -111,6 +118,7 @@ In addition, if it is not obvious, you should also describe how to run your code
 
 
 ## Credits
+
 ### Content
 The riddles are from the [Riddle Solution Answer Database](https://riddle.solutions/).
 
