@@ -35,7 +35,6 @@ Black
 body {
     background: url("../images/riddle-background.jpg") no-repeat center fixed; 
     background-size: cover;
-    overflow: hidden;  /*Ensures that the background image does not create an unnecessary scrollbar*/
 }
 
 #main-content {
@@ -89,18 +88,36 @@ h2 {
 @media(max-width: 678px) {
 h1 {
     font-size: 50px;
-}
+    }
 
 h2 {
     font-size: 25px;
-}
+    }
 
 .body-text {
     font-size: 15px;
-}
+    }
 
 .menuitem {
     font-size: 15px;
+    }
 }
+
+@media(max-width: 450px) {
+.text-box {
+    width: 80vw;
+    padding: 10px;
+    text-align: center;
+    margin-top: 30px;
+}
+
+h2 {
+    font-size: 18px;
+    }
+
+
+.body-text {
+    font-size: 12px;
+    }
 
 }
