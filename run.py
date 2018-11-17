@@ -10,47 +10,47 @@ app.secret_key = os.urandom(24)
 # Page Not Found
 @app.errorhandler(404)
 def page_not_found(e):
-    return render_template("404.html"), 404
+    return render_template('404.html'), 404
 
 # Server Error
 @app.errorhandler(500)
 def server_error(e):
-    return render_template("500.html"), 500 
+    return render_template('500.html'), 500 
     
 # Define the data source
-with open("data/riddles.json") as riddle_file:
+with open('data/riddles.json') as riddle_file:
     riddle_list = json.load(riddle_file)    
     
 # Set the initial session variables
 def start():
     session['score'] = 0
     session['riddle_number'] = 0
-    session["riddle_attempt"] = 1
+    session['riddle_attempt'] = 1
     return session['score'], session['riddle_number'], session['riddle_attempt']
 
 # The user logs in
-@app.route("/", methods=["GET", "POST"])
+@app.route('/', methods=['GET', 'POST'])
 def index():
-    if request.method == "POST":
-        username = request.form["username"]
-        with open("data/users.txt", "r") as user_list:
+    if request.method == 'POST':
+        username = request.form['username']
+        with open('data/users.txt', 'r') as user_list:
             current_users = user_list.read().splitlines()
         if username in current_users:
-            flash("That username is taken. Please choose another one.")
+            flash('That username is taken. Please choose another one.')
         else:
-            user_list = open("data/users.txt", "a")
-            user_list.write(username + "\n")
-            session["user"] = username
+            user_list = open('data/users.txt', 'a')
+            user_list.write(username + '\n')
+            session['user'] = username
             start()
-            return redirect(request.form["username"])
-    return render_template("index.html")
+            return redirect(request.form['username'])
+    return render_template('index.html')
 
 # Playing the game
 @app.route('/<username>', methods=['GET', 'POST'])
 def play(username):
     data = riddle_list
-    current_riddle = riddle_list[session["riddle_number"]]
-    correct_answer = current_riddle["answer"]
+    current_riddle = riddle_list[session['riddle_number']]
+    correct_answer = current_riddle['answer']
     if request.method == 'POST':
         user_answer = request.form['user_input'].lower()
 
@@ -62,37 +62,37 @@ def play(username):
             session['score'] += 1
             if session['riddle_number'] < 9:
                 session['riddle_number'] += 1
-                current_riddle = riddle_list[session["riddle_number"]]
-                session["riddle_attempt"] = 1
+                current_riddle = riddle_list[session['riddle_number']]
+                session['riddle_attempt'] = 1
                 flash('Well done!')
             else:
                 write_to_leaderboard()
-                flash("Well done! Now check out the leaderboard to see where you rank.")
+                flash('Well done! Now check out the leaderboard to see where you rank.')
 
         # If the user answers incorrectly on the first attempt they get another chance        
-        elif session["riddle_attempt"] < 2:
-            session["riddle_attempt"] += 1
+        elif session['riddle_attempt'] < 2:
+            session['riddle_attempt'] += 1
             flash('You answered "{}", which was the wrong answer. Please try again.'.format(user_answer))
             
         # If the user answers incorrectly a second time, the next riddle displays unless all riddles have been answered   
         elif session['riddle_number'] < 9:
             session['riddle_number'] += 1
-            current_riddle = riddle_list[session["riddle_number"]]
+            current_riddle = riddle_list[session['riddle_number']]
             session['riddle_attempt'] = 1
             flash('You answered "{}" but "{}" was the correct answer. Better luck on the next riddle.'.format(user_answer, correct_answer))
         else:
             write_to_leaderboard()
             flash('You answered "{}" but "{}" was the correct answer. That was the last riddle. Now check out the leaderboard to see where you rank.'.format(user_answer, correct_answer))
 
-    return render_template('play.html', riddle_list=data, question=current_riddle["question"], username=username,
+    return render_template('play.html', riddle_list=data, question=current_riddle['question'], username=username,
     riddle_number = session['riddle_number'], score = session['score'])
     
-@app.route("/write_to_leaderboard")
+@app.route('/write_to_leaderboard')
 def write_to_leaderboard():
     if session:
         if session['riddle_number'] >= 9:
-            with open("data/leaders.txt", "a") as leaderboard:
-                leaderboard.write('{}:{}\n'.format(str(session["user"]), str(session['score'])))
+            with open('data/leaders.txt', 'a') as leaderboard:
+                leaderboard.write('{}:{}\n'.format(str(session['user']), str(session['score'])))
 
 # This function is by my mentor, Chris Zielinski
 def get_leaders():
@@ -106,13 +106,13 @@ def get_leaders():
         # Sort leaders on the 2nd elem of the tuple, reverse the sort, then return the top 10
         return sorted(sorted_leaders, key=lambda x: x[1])[::-1][:10]            
 
-@app.route("/leaderboard")
+@app.route('/leaderboard')
 def leaderboard():
     leaders = get_leaders()
-    return render_template("leaderboard.html", leaders=leaders)
+    return render_template('leaderboard.html', leaders=leaders)
     
 
-if __name__ == "__main__":
-    app.run(host=os.environ.get("IP"),
-            port=int(os.environ.get("PORT")),
+if __name__ == '__main__':
+    app.run(host=os.environ.get('IP'),
+            port=int(os.environ.get('PORT')),
             debug=True)
