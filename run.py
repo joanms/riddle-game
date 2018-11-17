@@ -12,14 +12,17 @@ app.secret_key = os.urandom(24)
 def page_not_found(e):
     return render_template('404.html'), 404
 
+
 # Server Error
 @app.errorhandler(500)
 def server_error(e):
     return render_template('500.html'), 500 
     
+    
 # Define the data source
 with open('data/riddles.json') as riddle_file:
     riddle_list = json.load(riddle_file)    
+    
     
 # Set the initial session variables
 def start():
@@ -27,6 +30,7 @@ def start():
     session['riddle_number'] = 0
     session['riddle_attempt'] = 1
     return session['score'], session['riddle_number'], session['riddle_attempt']
+
 
 # The user logs in
 @app.route('/', methods=['GET', 'POST'])
@@ -45,6 +49,7 @@ def index():
             return redirect(request.form['username'])
     return render_template('index.html')
 
+
 # Playing the game
 @app.route('/<username>', methods=['GET', 'POST'])
 def play(username):
@@ -55,7 +60,6 @@ def play(username):
         user_answer = request.form['user_input'].lower()
 
         # Iterate through the riddles and then display the leaderboard
-        
             
         # If the user answers correctly, the score increments and the next riddle displays unless all riddles have been answered
         if user_answer == correct_answer:
@@ -86,12 +90,14 @@ def play(username):
     return render_template('play.html', riddle_list=data, question=current_riddle['question'], username=username,
     riddle_number = session['riddle_number'], score = session['score'])
     
+    
 @app.route('/write_to_leaderboard')
 def write_to_leaderboard():
     if session:
         if session['riddle_number'] >= 9:
             with open('data/leaders.txt', 'a') as leaderboard:
                 leaderboard.write('{}:{}\n'.format(str(session['user']), str(session['score'])))
+
 
 # This function is by my mentor, Chris Zielinski
 def get_leaders():
@@ -104,6 +110,7 @@ def get_leaders():
             
         # Sort leaders on the 2nd elem of the tuple, reverse the sort, then return the top 10
         return sorted(sorted_leaders, key=lambda x: x[1])[::-1][:10]            
+
 
 @app.route('/leaderboard')
 def leaderboard():
