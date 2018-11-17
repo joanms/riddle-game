@@ -55,30 +55,34 @@ def play(username):
         user_answer = request.form['user_input'].lower()
 
         # Iterate through the riddles and then display the leaderboard
-        if session['riddle_number'] < 9:
+        
             
-            # If the user answers correctly, the score increments and the next riddle displays
-            if user_answer == correct_answer:
+        # If the user answers correctly, the score increments and the next riddle displays unless all riddles have been answered
+        if user_answer == correct_answer:
+            session['score'] += 1
+            if session['riddle_number'] < 9:
                 session['riddle_number'] += 1
                 current_riddle = riddle_list[session["riddle_number"]]
-                session['score'] += 1
                 session["riddle_attempt"] = 1
                 flash('Well done!')
-
-            # If the user answers incorrectly on the first attempt they get another chance        
-            elif session["riddle_attempt"] < 2:
-                session["riddle_attempt"] += 1
-                flash('You answered "{}", which was the wrong answer. Please try again.'.format(user_answer))
-            
-            # If the user answers incorrectly a second time, the next riddle displays   
             else:
-                session['riddle_number'] += 1
-                current_riddle = riddle_list[session["riddle_number"]]
-                session['riddle_attempt'] = 1
-                flash('You answered "{}" but "{}" was the correct answer. Better luck on the next riddle.'.format(user_answer, correct_answer))
+                write_to_leaderboard()
+                flash("Well done! Now check out the leaderboard to see where you rank.")
 
+        # If the user answers incorrectly on the first attempt they get another chance        
+        elif session["riddle_attempt"] < 2:
+            session["riddle_attempt"] += 1
+            flash('You answered "{}", which was the wrong answer. Please try again.'.format(user_answer))
+            
+        # If the user answers incorrectly a second time, the next riddle displays unless all riddles have been answered   
+        elif session['riddle_number'] < 9:
+            session['riddle_number'] += 1
+            current_riddle = riddle_list[session["riddle_number"]]
+            session['riddle_attempt'] = 1
+            flash('You answered "{}" but "{}" was the correct answer. Better luck on the next riddle.'.format(user_answer, correct_answer))
         else:
-            return redirect(url_for("leaderboard"))
+            write_to_leaderboard()
+            flash('You answered "{}" but "{}" was the correct answer. That was the last riddle. Now check out the leaderboard to see where you rank.'.format(user_answer, correct_answer))
 
     return render_template('play.html', riddle_list=data, question=current_riddle["question"], username=username,
     riddle_number = session['riddle_number'], score = session['score'])
