@@ -84,21 +84,20 @@ Whenever it is feasible, prefer to automate your tests, and if you've done so, p
     9. Enter a wrong answer on the second attempt.
     10. Ensure that the next riddle appears, the score is unchanged and I see a message telling me I got the last riddle wrong.
     11. Play the game through to the end.
-    12. Ensure that I see a message saying that the game is over and prompting me to check the leaderboard.
+    12. Ensure that I am taken to the leaderboard page, and that it includes a message giving the answer to the last riddle and the player's score along with the leaderboard.
 
 3. Leaderboard
     1. Play the game through to the end more than 10 times with different usernames, making different numbers of deliberate errors each time.
-    2. Click on the Leaderboard nav link at the top of the page.
-    3. Ensure that the top 10 usernames and scores are correct, and listed in descending order of score.
+    3. Ensure that the top 10 usernames and scores are correctly listed in the leaderboard, in descending order of score.
 
 4. Cross-browser and Device Compatibility
     1. Play the game on Chrome, Edge, Firefox and Opera browsers to ensure that it works on all of them.
-    2. Play the game on a tablet computer and a smartphone to ensure that it works on mobile devices.
+    2. Play the game on a desktop, laptop, tablet and smartphone to ensure that it works on all devices.
 
 5. Responsiveness
     1. Check the game in responsive mode with Chrome Developer Tools to ensure that the size and position of elements adjusts correctly.
-    2. Check the game on a tablet computer and a smartphone to ensure that it displays correctly. On desktop devices, the navbar appears 
-    at the top right of the page. On mobile devices, it appears below the main heading, and the size of all text is reduced to avoid overflow.
+    2. Check the game on a desktop, laptop, tablet and smartphone to ensure that it displays correctly. On large screens, the navbar appears 
+    at the top right of the page. On smaller screens, it appears below the main heading, and the size of all text is reduced to avoid overflow.
 
 You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
 
