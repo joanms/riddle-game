@@ -1,6 +1,5 @@
 import os
 import json
-import random
 from flask import Flask, flash, render_template, redirect, request, url_for, session
 
 app = Flask(__name__)
