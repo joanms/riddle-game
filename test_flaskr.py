@@ -2,7 +2,6 @@ import os
 import tempfile
 
 import pytest
-import flaskr
 
 from flaskr import flaskr
 
