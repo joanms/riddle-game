@@ -1,5 +1,6 @@
 import os
 import json
+import random
 from flask import Flask, flash, render_template, redirect, request, url_for, session
 
 app = Flask(__name__)
@@ -64,7 +65,7 @@ def play(username):
         # If the user answers correctly, the score increments and the next riddle displays unless all riddles have been answered
         if user_answer == correct_answer:
             session['score'] += 1
-            if session['riddle_number'] < 9:
+            if session['riddle_number'] < 24:
                 session['riddle_number'] += 1
                 current_riddle = riddle_list[session['riddle_number']]
                 session['riddle_attempt'] = 1
@@ -79,7 +80,7 @@ def play(username):
             flash('You answered "{}", which was the wrong answer. Please try again.'.format(user_answer))
             
         # If the user answers incorrectly a second time, the next riddle displays unless all riddles have been answered   
-        elif session['riddle_number'] < 9:
+        elif session['riddle_number'] < 24:
             session['riddle_number'] += 1
             current_riddle = riddle_list[session['riddle_number']]
             session['riddle_attempt'] = 1
@@ -94,7 +95,7 @@ def play(username):
 @app.route('/write_to_leaderboard')
 def write_to_leaderboard():
     if session:
-        if session['riddle_number'] >= 9:
+        if session['riddle_number'] >= 24:
             with open('data/leaders.txt', 'a') as leaderboard:
                 leaderboard.write('{}:{}\n'.format(str(session['user']), str(session['score'])))
 

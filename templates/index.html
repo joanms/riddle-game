@@ -2,7 +2,7 @@
 {% block content %}
 
             <h2>Please select a username</h2>
-            <p class="body-text">This will be used to rank the top scores in a leaderboard.</p>
+            <p class="body-text">Up to 15 alphanumeric characters, with no spaces. This will be used to rank the top scores in a leaderboard.</p>
             
             {% with messages = get_flashed_messages() %} {% if messages %}
                 {% for message in messages %}
@@ -12,7 +12,7 @@
             
             <form method="POST">
                 <label for="username" class="form-label body-text">Username:</label>    
-                <input type="text" id="username" autofocus="autofocus" name="username" pattern="^[a-zA-Z0-9]+$" required>
+                <input type="text" id="username" autofocus="autofocus" name="username" pattern="^[a-zA-Z0-9]+$" maxlength="15" required>
                 <button class="form-label body-text">Log In</button>
             </form>
 
