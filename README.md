@@ -38,11 +38,14 @@ the same orange when the user hovers over them. The green background of the head
 - **Answer form** to input their answers to the riddles.
 - **Leaderboard** ranking the users so that they can see how they compare to other players.
 
-### Feature Left to Implement
+### Features Left to Implement
 
 - **The option to return to the game with an existing username.** Without secure user authentication, which is out of the scope of this 
 module, there's no easy way to differentiate between a returning user and a user who has chosen the same username as another user. 
 Consequently, users must choose a new username each time they log in.
+
+- **More riddles, with a random selection presented each time a user logs in.** This would enable a user to play the game multiple times 
+without seeing the same riddles over and over.
 
 
 ## Technologies Used
