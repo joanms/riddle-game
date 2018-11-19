@@ -108,7 +108,7 @@ def get_leaders():
             sorted_leaders.append(tupe)
             
         # Sort leaders on the 2nd elem of the tuple, reverse the sort, then return the top 10
-        return sorted(sorted_leaders, key=lambda x: x[1])[::-1][:10]            
+        return sorted(sorted_leaders, key=lambda x: x[1])[::-1][:10]
 
 
 @app.route('/leaderboard')
