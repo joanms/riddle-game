@@ -6,12 +6,11 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 
-# Error Handlers
+# Error Handler code by Joke Heyndels
 # Page Not Found
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('404.html'), 404
-
 
 # Server Error
 @app.errorhandler(500)
