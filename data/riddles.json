@@ -8,36 +8,36 @@
             "answer": "keyboard"
         },
         {
-            "question": "I have two arms, but fingers none. I have two feet, but cannot run. I carry well, but I have found I carry best with my feet off the ground. What am I?",
-            "answer": "wheelbarrow"
-        },
-        {
             "question": "What is that which goes with a car, comes with a car, is of no use to a car, and yet the car cannot go without it?",
             "answer": "noise"
         },
         {
-            "question": "I'm the part of the bird that's not in the sky. I can swim in the ocean and yet remain dry. What am I?",
-            "answer": "shadow"
+            "question": "I have two arms, but fingers none. I have two feet, but cannot run. I carry well, but I have found I carry best with my feet off the ground. What am I?",
+            "answer": "wheelbarrow"
         },
         {
             "question": "What do you throw out when you want to use it, but take in when you don't want to use it?",
             "answer": "anchor"
         },
         {
-            "question": "You hear it speak, for it has a hard tongue. But it cannot breathe, for it has not a lung. What is it?",
-            "answer": "bell"
-        },
-        {
             "question": "It is an insect, and the first part of its name is the name of another insect. What is it?",
             "answer": "beetle"
         },
         {
-            "question": "Hands she has but does not hold, teeth she has but does not bite, feet she has but they are cold, eyes she has but without sight. Who is she?",
-            "answer": "doll"
+            "question": "I'm the part of the bird that's not in the sky. I can swim in the ocean and yet remain dry. What am I?",
+            "answer": "shadow"
+        },
+        {
+            "question": "Feed me and I live, give me something to drink and I'll die. What am I?",
+            "answer": "fire"
         },
         {
             "question": "What word of five letters has only one left when two letters are removed?",
             "answer": "stone"
+        },
+        {
+            "question": "You hear it speak, for it has a hard tongue. But it cannot breathe, for it has not a lung. What is it?",
+            "answer": "bell"
         },
         {
             "question": "Take off my skin and I won't cry, but you will. What am I?",
@@ -56,28 +56,28 @@
             "answer": "footsteps"
         },
         {
-            "question": "Three lives have I. Gentle enough to soothe the skin. Light enough to caress the sky. Hard enough to crack rocks. What am I?",
-            "answer": "water"
-        },
-        {
-            "question": "What do you break every time you name it?",
-            "answer": "silence"
+            "question": "What five-letter word becomes shorter when you add two letters?",
+            "answer": "short"
         },
         {
             "question": "Lives without a body, hears without ears, speaks without a mouth, to which the air alone gives birth. What is it?",
             "answer": "echo"
         },
         {
+            "question": "What do you break every time you name it?",
+            "answer": "silence"
+        },
+        {
             "question": "What turns everything around, but does not move?",
             "answer": "mirror"
         },
         {
-            "question": "What doesn't get any wetter, no matter how much rain falls on it?",
-            "answer": "water"
-        },
-        {
             "question": "I have a face, two arms, and two hands, yet I can not move. I count to twelve, yet I can not speak. I can still tell you something every day. What am I?",
             "answer": "clock"
+        },
+        {
+            "question": "What doesn't get any wetter, no matter how much rain falls on it?",
+            "answer": "water"
         },
         {
             "question": "What is harder to catch the faster you run?",
@@ -97,6 +97,6 @@
         },
         {
             "question": "What is it that no-one ever yet did see, which never was, but always is to be?",
-            "answer": "tomorrow"
+            "answer": "future"
         }
     ]
