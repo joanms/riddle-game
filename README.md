@@ -88,6 +88,7 @@ Whenever it is feasible, prefer to automate your tests, and if you've done so, p
     10. Ensure that the next riddle appears, the score is unchanged and I see a message telling me I got the last riddle wrong.
     11. Play the game through to the end.
     12. Ensure that I am taken to the leaderboard page, and that it includes a message giving the answer to the last riddle and the player's score along with the leaderboard.
+    13. Played the game on two devices simultaneously to ensure that there were no errors caused by simultaneous play.
 
 3. Leaderboard
     1. Play the game through to the end more than 10 times with different usernames, making different numbers of deliberate errors each time.
