@@ -16,11 +16,18 @@ class FlaskTestCase(unittest.TestCase):
                     response = tester.get('/', follow_redirects=True)
                     self.assertIn(b'Please select a username', response.data)
 
+          # Ensure that riddle page displays after login
+          def test_correct_login(self):
+                    tester = app.test_client(self)
+                    response = tester.post('/', data=dict(username="admin"), 
+                    follow_redirects=True)
+                    self.assertIn(b'You will be presented with 25 riddles', response.data)
+
           # Ensure the leaderboard page loads
-          def test_riddles_display(self):
+          def test_leaderboard_display(self):
                     tester = app.test_client(self)
                     response = tester.get('/leaderboard', follow_redirects=True)
-                    self.assertEqual(response.status_code, 200)
+                    self.assertIn(b'Leaderboard', response.data)
           
 if  __name__ == '__main__':
           unittest.main()
