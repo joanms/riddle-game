@@ -1,7 +1,6 @@
 import os
 import json
 from flask import Flask, flash, render_template, redirect, request, url_for, session
-from byotest import *
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)

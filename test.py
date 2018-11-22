@@ -1,21 +1,15 @@
-import os
-import tempfile
-
-import pytest
-
-from flaskr import flaskr
+from app import app
+import unittest
 
 
-@pytest.fixture
-def client():
-    db_fd, flaskr.app.config['DATABASE'] = tempfile.mkstemp()
-    flaskr.app.config['TESTING'] = True
-    client = flaskr.app.test_client()
+class FlaskTestCase(unittest.TestCase):
 
-    with flaskr.app.app_context():
-        flaskr.init_db()
-
-    yield client
-
-    os.close(db_fd)
-    os.unlink(flaskr.app.config['DATABASE'])
+          # Ensure that Flask was set up correctly
+          def test_index(self):
+                    tester = app.test_client(self)
+                    response = tester.get('/', content_type='html/text')
+                    self.assertEqual(response.status_code, 200)
+                    
+                    
+if  __name__ == '__main__':
+          unittest.main()
