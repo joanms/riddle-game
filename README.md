@@ -68,6 +68,8 @@ game requires each user to have a unique username.
 
 ### Manual Tests
 
+Manual tests of the application were conducted as follows:
+
 1. Login:
     1. Go to the "Login" page
     2. Enter a new username and click the Login button. 
