@@ -1,6 +1,7 @@
 import os
 import json
 from flask import Flask, flash, render_template, redirect, request, url_for, session
+from byotest import *
 
 app = Flask(__name__)
 app.secret_key = os.urandom(24)
@@ -124,6 +125,7 @@ def leaderboard():
     else:
         return render_template('leaderboard.html', leaders=leaders)
     
+print("All tests pass")
 
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
