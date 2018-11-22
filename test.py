@@ -22,7 +22,7 @@ class FlaskTestCase(unittest.TestCase):
                     tester = app.test_client(self)
                     response = tester.post('/', data=dict(username="admin"), 
                     follow_redirects=True)
-                    self.assertIn(b'You will be presented with 25 riddles', response.data)
+                    self.assertIn(b'Never resting, never still.', response.data)
 
           # Ensure the leaderboard page loads correctly
           def test_leaderboard_display(self):

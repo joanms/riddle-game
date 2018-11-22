@@ -63,8 +63,7 @@ without seeing the same riddles over and over.
 ### Automated Tests
 
 Automated testing was done with unittests, and the tests are in test.py at the root directory. Run the tests by typing "python3 test.py" in the terminal. 
-Please note that the test to ensure that the riddle page displays after login will fail if the username in the test is already in users.txt, because the 
-game requires each user to have a unique username.
+Please note that test_correct_login() will fail if the username in the test is already in users.txt, because the game requires each user to have a unique username.
 
 ### Manual Tests
 
