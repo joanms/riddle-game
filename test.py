@@ -1,3 +1,4 @@
+# The tests are based on this video: https://www.youtube.com/watch?v=1aHNs1aEATg&list=PLLjmbh6XPGK4ISY747FUHXEl9lBxre4mM&index=8&t=0s
 from app import app
 import unittest
 
@@ -23,7 +24,7 @@ class FlaskTestCase(unittest.TestCase):
                     follow_redirects=True)
                     self.assertIn(b'You will be presented with 25 riddles', response.data)
 
-          # Ensure the leaderboard page loads
+          # Ensure the leaderboard page loads correctly
           def test_leaderboard_display(self):
                     tester = app.test_client(self)
                     response = tester.get('/leaderboard', follow_redirects=True)
