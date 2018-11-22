@@ -124,8 +124,6 @@ def leaderboard():
     else:
         return render_template('leaderboard.html', leaders=leaders)
     
-print("All tests pass")
-
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
             port=int(os.environ.get('PORT')),
