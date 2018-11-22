@@ -17,10 +17,10 @@ class FlaskTestCase(unittest.TestCase):
                     response = tester.get('/', follow_redirects=True)
                     self.assertIn(b'Please select a username', response.data)
 
-          # Ensure that riddle page displays after login
+          # Ensure that the first riddle displays after login
           def test_correct_login(self):
                     tester = app.test_client(self)
-                    response = tester.post('/', data=dict(username="admin"), 
+                    response = tester.post('/', data=dict(username="player1"), 
                     follow_redirects=True)
                     self.assertIn(b'Never resting, never still.', response.data)
 
