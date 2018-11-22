@@ -54,16 +54,17 @@ without seeing the same riddles over and over.
 - **[CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)** was used to style the content.
 - **[Bootstrap](https://getbootstrap.com/)** was used to simplify the layout and responsiveness.
 - **[Python](https://www.python.org/)** was used to write the game logic.
-- **[Flask](http://flask.pocoo.org/)** was used create a session for each login, route through the game and render HTML templates.
+- **[unittest](https://docs.python.org/2/library/unittest.html)** was used for automated testing of the Python code.
+- **[Flask](http://flask.pocoo.org/)** was used to create a session for each login, route through the game and render HTML templates.
 
 
 ## Testing
 
-In this section, you need to convince the assessor that you have conducted enough testing to legitimately believe that the site works well. Essentially, in this part you will want to go over all of your user stories from the UX section and ensure that they all work as intended, with the project providing an easy and straightforward way for the users to achieve their goals.
-
 ### Automated Tests
 
-Whenever it is feasible, prefer to automate your tests, and if you've done so, provide a brief explanation of your approach, link to the test file(s) and explain how to run them.
+Automated testing was done with unittests, and the tests are in test.py at the root directory. Run the tests by typing "python3 test.py" in the terminal. 
+Please note that the test to ensure that the riddle page displays after login will fail if the username in the test is already in users.txt, because the 
+game requires each user to have a unique username.
 
 ### Manual Tests
 
