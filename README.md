@@ -89,7 +89,7 @@ game requires each user to have a unique username.
     10. Ensure that the next riddle appears, the score is unchanged and I see a message telling me I got the last riddle wrong.
     11. Play the game through to the end.
     12. Ensure that I am taken to the leaderboard page, and that it includes a message giving the answer to the last riddle and the player's score along with the leaderboard.
-    13. Played the game on two devices simultaneously to ensure that there were no errors caused by simultaneous play.
+    13. Play the game on two devices simultaneously to ensure that there were no errors caused by simultaneous play.
 
 3. Leaderboard
     1. Play the game through to the end more than 10 times with different usernames, making different numbers of deliberate errors each time.
@@ -103,10 +103,6 @@ game requires each user to have a unique username.
     1. Check the game in responsive mode with Chrome Developer Tools to ensure that the size and position of elements adjusts correctly.
     2. Check the game on a desktop, laptop, tablet and smartphone to ensure that it displays correctly. On large screens, the navbar appears 
     at the top right of the page. On smaller screens, it appears below the main heading, and the size of all text is reduced to avoid overflow.
-
-You should also mention in this section any interesting bugs or problems you discovered during your testing, even if you haven't addressed them yet.
-
-If this section grows too long, you may want to split it off into a separate file and link to it from here.
 
 
 ## Deployment
@@ -133,4 +129,4 @@ The background image and favicon are free stock images from [Pixabay](https://pi
 My fellow student, Joke Heyndels, my tutors, Nakita McCool, Niel McEwen and Haley Schafer, and 
 my mentor, Chris Zielinski provided valuable help with the project.
 
-The syntax in test.py is based on [this YouTube video](https://www.youtube.com/watch?v=1aHNs1aEATg&list=PLLjmbh6XPGK4ISY747FUHXEl9lBxre4mM&index=8&t=0s) 
+The syntax in test.py is based on [this YouTube video](https://www.youtube.com/watch?v=1aHNs1aEATg&list=PLLjmbh6XPGK4ISY747FUHXEl9lBxre4mM&index=8&t=0s). 
