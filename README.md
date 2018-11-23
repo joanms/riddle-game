@@ -53,9 +53,9 @@ without seeing the same riddles over and over.
 - **[HTML5](https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/HTML5)** was used to write the content of the site.
 - **[CSS3](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS3)** was used to style the content.
 - **[Bootstrap](https://getbootstrap.com/)** was used to simplify the layout and responsiveness.
+- **[Flask](http://flask.pocoo.org/)** was used to create a session for each login, route through the game and render HTML templates.
 - **[Python](https://www.python.org/)** was used to write the game logic.
 - **[unittest](https://docs.python.org/2/library/unittest.html)** was used for automated testing of the Python code.
-- **[Flask](http://flask.pocoo.org/)** was used to create a session for each login, route through the game and render HTML templates.
 - **[Heroku](https://www.heroku.com/)** was used to deploy the project.
 
 
