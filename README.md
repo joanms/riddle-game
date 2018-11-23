@@ -56,6 +56,7 @@ without seeing the same riddles over and over.
 - **[Python](https://www.python.org/)** was used to write the game logic.
 - **[unittest](https://docs.python.org/2/library/unittest.html)** was used for automated testing of the Python code.
 - **[Flask](http://flask.pocoo.org/)** was used to create a session for each login, route through the game and render HTML templates.
+- **[Heroku](https://www.heroku.com/)** was used to deploy the project.
 
 
 ## Testing
