@@ -6,7 +6,7 @@ It is the milestone project for the Practical Python module of Code Institute's 
  
 ## UX
 
-Please [click here](https://www.lucidchart.com/invitations/accept/f3b7e96b-17bc-4e27-836f-4051f1113364) to see a flowchart of the game logic.
+Please [click here](https://drive.google.com/file/d/1NEO0yWcnmsEMqvmtsFM2Q9IrvU__8o-V/view?usp=sharing) to see a flowchart of the game logic.
  
 ### User Stories
 
