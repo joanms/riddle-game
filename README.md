@@ -1,4 +1,4 @@
-# Riddle Game
+# [Riddle Game](http://joans-riddle-game.herokuapp.com/)
 
 This is a game in which users, each with a unique user name, are presented with a series of 10 riddles. The top scores are listed in a leader board, in descending order. 
 It is the milestone project for the Practical Python module of Code Institute's mentored online full-stack software development course.
