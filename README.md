@@ -63,12 +63,12 @@ without seeing the same riddles over and over.
 
 ### Automated Tests
 
-Automated testing was done with unittests, and the tests are in test.py at the root directory. Run the tests by typing "python3 test.py" in the terminal. 
+I conducted automated testing of the app routes with unittests, and the tests are in test.py at the root directory. Run the tests by typing "python3 test.py" in the terminal. 
 Please note that test_correct_login() will fail if the username in the test is already in users.txt, because the game requires each user to have a unique username.
 
 ### Manual Tests
 
-Manual tests of the application were conducted as follows:
+I conducted manual tests of the application as follows:
 
 1. Login:
     1. Go to the "Login" page
@@ -109,15 +109,21 @@ Manual tests of the application were conducted as follows:
 
 ## Deployment
 
-This section should describe the process you went through to deploy the project to a hosting platform (e.g. GitHub Pages or Heroku).
+I deployed the project on Heroku as follows:
 
-In particular, you should provide all details of the differences between the deployed version and the development version, if any, including:
-- Different values for environment variables (Heroku Config Vars)?
-- Different configuration files?
-- Separate git branch?
+1. Create a new app on Heroku and name it joans-riddle-game.
+2. Create a Heroku remote.
+3. Ensure that the project included a Procfile and requirements.txt.
+4. Push the project to the Heroku remote.
+6. Start a web process by typing heroku ps:scale web=1 in the Cloud9 terminal.
+5. Set the IP to 0.0.0.0 and the PORT to 5000 in the app settings on Heroku.
+7. Restart all dynos.
+8. Open the app on Heroku and check to ensure that it's working correctly.
 
-In addition, if it is not obvious, you should also describe how to run your code locally.
-
+### Running the Code Locally
+1. Clone the GitHub Repo and run it in your code editor.
+2. Set the IP address to 127.0.0.1 and the PORT to 5000.
+3. Install the packages in requirements.txt by typing pip install -r requirements.txt in the command line.
 
 ## Credits
 
@@ -131,4 +137,4 @@ The background image and favicon are free stock images from [Pixabay](https://pi
 My fellow student, Joke Heyndels, my tutors, Nakita McCool, Niel McEwen and Haley Schafer, and 
 my mentor, Chris Zielinski provided valuable help with the project.
 
-The syntax in test.py is based on [this YouTube video](https://www.youtube.com/watch?v=1aHNs1aEATg&list=PLLjmbh6XPGK4ISY747FUHXEl9lBxre4mM&index=8&t=0s). 
+The syntax in test.py is based on [this YouTube video](https://www.youtube.com/watch?v=1aHNs1aEATg&list=PLLjmbh6XPGK4ISY747FUHXEl9lBxre4mM&index=8&t=0s).
