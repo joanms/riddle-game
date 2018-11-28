@@ -61,6 +61,11 @@ without seeing the same riddles over and over.
 
 ## Testing
 
+### Code Validity
+
+I used the [W3C Markup Validation Service](https://validator.w3.org/) to check the HTML and the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) to check the CSS. 
+The W3C Markup Validation Service gives error messages for Flask elements such as code for template inheritance. I disregarded those error messages and checked the code visually.
+
 ### Automated Tests
 
 I conducted automated testing of the app routes with unittests, and the tests are in test.py at the root directory. Run the tests by typing "python3 test.py" in the terminal. 
