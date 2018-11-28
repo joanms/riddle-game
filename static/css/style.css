@@ -5,6 +5,7 @@ Black
 #83C3AF Green
 #FD4D0C Orange*/
 
+
 /*HEADER*/
 
 #header {
@@ -79,8 +80,9 @@ h2 {
     margin-bottom: 0px;
 }
 
-/*Media Queries*/
 
+
+/*MEDIA QUERIES*/
 
 @media(max-width: 991px) {
     .navbar {
