@@ -84,7 +84,6 @@ def play(username):
             session['riddle_attempt'] = 1
             flash('You answered "{}" but "{}" was the correct answer. Better luck on the next riddle.'.format(user_answer, correct_answer))
         else:
-            write_to_leaderboard()
             return redirect(url_for("leaderboard"))
     return render_template('play.html', riddle_list=data, question=current_riddle['question'], username=username,
     riddle_number = session['riddle_number'], score = session['score'])
@@ -107,12 +106,13 @@ def get_leaders():
             tupe = (leader.split(':')[0].strip(), int(leader.split(':')[1].strip()))
             sorted_leaders.append(tupe)
             
-        # Sort leaders on the 2nd elem of the tuple, reverse the sort, then return the top 10
+        # Sort leaders on the 2nd element of the tuple, reverse the sort, then return the top 10
         return sorted(sorted_leaders, key=lambda x: x[1])[::-1][:10]
 
 
 @app.route('/leaderboard')
 def leaderboard():
+    write_to_leaderboard()
     leaders = get_leaders()
     
     # If a session is in progress, the leaderboard page includes the answer to the last question and the player's score
