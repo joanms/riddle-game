@@ -14,6 +14,7 @@
                 <button class="submit body-text" class="form-label body-text" value="user_input">Submit Answer</button>
             </form>
             
+            <!--The user sees a message telling them if they got an answer right and, if not, whether or not they have another chance-->
             {% with messages = get_flashed_messages() %} {% if messages %}
                 {% for message in messages %}
                 <p class="body-text" id="flash">{{ message }}</p>

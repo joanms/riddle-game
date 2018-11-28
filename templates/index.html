@@ -4,6 +4,7 @@
             <h2>Please select a username</h2>
             <p class="body-text">Up to 15 letters or numbers, with no spaces. This will be used to rank the top scores in a leaderboard.</p>
             
+            <!--If the user selects a username that's already in users.txt, they see a message prompting them to select another one-->
             {% with messages = get_flashed_messages() %} {% if messages %}
                 {% for message in messages %}
                 <p class="body-text" id="flash">{{ message }}</p>
