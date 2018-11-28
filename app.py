@@ -93,7 +93,7 @@ def write_to_leaderboard():
     if session:
         if session['riddle_number'] >= 24:
             with open('data/leaders.txt', 'a') as leaderboard:
-                leaderboard.write('{}:{}\n'.format(str(session['user']), str(session['score'])))
+                leaderboard.write('\n{}:{}'.format(str(session['user']), str(session['score'])))
 
 
 # This function is by my mentor, Chris Zielinski
