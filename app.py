@@ -69,7 +69,6 @@ def play(username):
                 session['riddle_attempt'] = 1
                 flash('Well done!')
             else:
-                write_to_leaderboard()
                 return redirect(url_for("leaderboard"))
 
         # If the user answers incorrectly on the first attempt they get another chance        
