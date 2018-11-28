@@ -81,7 +81,6 @@ h2 {
 }
 
 
-
 /*MEDIA QUERIES*/
 
 @media(max-width: 991px) {
@@ -120,9 +119,7 @@ h2 {
     font-size: 18px;
     }
 
-
 .body-text {
     font-size: 15px;
     }
-
 }
