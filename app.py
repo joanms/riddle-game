@@ -69,6 +69,7 @@ def play(username):
                 session['riddle_attempt'] = 1
                 flash('Well done!')
             else:
+                write_to_leaderboard()
                 return redirect(url_for("leaderboard"))
 
         # If the user answers incorrectly on the first attempt they get another chance        
@@ -83,6 +84,7 @@ def play(username):
             session['riddle_attempt'] = 1
             flash('You answered "{}" but "{}" was the correct answer. Better luck on the next riddle.'.format(user_answer, correct_answer))
         else:
+            write_to_leaderboard()
             return redirect(url_for("leaderboard"))
     return render_template('play.html', riddle_list=data, question=current_riddle['question'], username=username,
     riddle_number = session['riddle_number'], score = session['score'])
@@ -111,7 +113,6 @@ def get_leaders():
 
 @app.route('/leaderboard')
 def leaderboard():
-    write_to_leaderboard()
     leaders = get_leaders()
     
     # If a session is in progress, the leaderboard page includes the answer to the last question and the player's score

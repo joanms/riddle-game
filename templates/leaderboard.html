@@ -4,8 +4,8 @@
             <!--If a session is in progress, the leaderboard page includes the answer to the last question and the player's score-->
             {% if session %}
             <h2>Game Over!</h2>
-            <p class="body-text">The correct answer to the last riddle was "{{ correct_answer }}". 
-            Your score is {{ score }}. Let's see how you compare to other players.</p>
+            <p class="body-text">The correct answer to the last riddle was <strong></strong>"{{ correct_answer }}"</strong>. 
+            Your score is <strong>{{ score }}</strong>. Let's see how you compare to other players.</p>
             {% endif %}
 
             <h2>Leaderboard</h2>
