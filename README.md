@@ -64,7 +64,7 @@ without seeing the same riddles over and over.
 ### Code Validity
 
 I used the [W3C Markup Validation Service](https://validator.w3.org/) to check the HTML and the [W3C CSS Validation Service](https://jigsaw.w3.org/css-validator/) to check the CSS. 
-The W3C Markup Validation Service gives error messages for Flask elements such as code for template inheritance. I disregarded those error messages and checked the code visually.
+The W3C Markup Validation Service gives error messages for Flask Jinja code in the HTML files. I disregarded those error messages and checked the code visually.
 
 ### Automated Tests
 
@@ -110,6 +110,9 @@ I conducted manual tests of the application as follows:
     1. Check the game in responsive mode with Chrome Developer Tools to ensure that the size and position of elements adjusts correctly.
     2. Check the game on a desktop, laptop, tablet and smartphone to ensure that it displays correctly. On large screens, the navbar appears 
     at the top right of the page. On smaller screens, it appears below the main heading, and the size of all text is reduced to avoid overflow.
+
+If the user clicks the forward or back browser buttons while a game is in progress, they will see error messages relating to form submission data. 
+This is normal for a site that uses user-submitted data.
 
 
 ## Deployment
