@@ -1,13 +1,14 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-            <!--If a session is in progress, the leaderboard page includes the answer to the last question and the player's score-->
+            <!--If a session is in progress, the leaderboard page includes the answer to the last question and the player's score in addition to the leaderboard-->
             {% if session %}
             <h2>Game Over!</h2>
             <p class="body-text">The correct answer to the last riddle was <strong></strong>"{{ correct_answer }}"</strong>. 
             Your score is <strong>{{ score }}</strong>. Let's see how you compare to other players.</p>
             {% endif %}
 
+            <!--If a session is not in progress, the leaderboard page only displays the leaderboard-->
             <h2>Leaderboard</h2>
             {% for leader in leaders %}
             <p class="body-text" id="leaderboard">{{loop.index}}. {{ leader.0 }}: {{ leader.1 }} points</p>

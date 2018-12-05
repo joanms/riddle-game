@@ -14,16 +14,20 @@
     <body>
         <header>
             <div class="container-fluid">
-                <div class="row" id="header">
-                    <div class="col-xs-12 col-lg-8 offset-lg-2 title">
+                <div class="row" id="heading">
+                    
+                    <div class="col-xs-12 col-lg-8 offset-lg-2">
                         <h1>Riddle Me This...</h1>
                     </div>
+                    
                     <div class="col-xs-6 offset-xs-3 col-lg-2 navbar menuitem">
                         <a class="menuitem" id="login" href="{{ url_for('index') }}"><i class="fas fa-sign-in-alt"></i> Login</a>
                         <a class="menuitem" href="{{ url_for('leaderboard') }}"><i class="fa fa-list-ol"></i> Leaderboard</a>
-                    </div>
-                </div>
-            </div>
+                    </div> <!--End of navbar-->
+                    
+                </div> <!--End of heading row-->
+            </div> <!--End of container-->
+            
         </header>
         
         <div id="main-content">

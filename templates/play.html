@@ -5,9 +5,11 @@
             <p class="body-text">You will be presented with 25 riddles, and have 
             two chances to answer each one. Each riddle&rsquo;s answer is one word.</p>
 
+            <!--The current riddle displays-->
             <h2>Riddle {{ riddle_number + 1 }} of 25</h2>
                 <p class="body-text">{{ question }}</p>
 
+            <!--The user posts an answer-->
             <form method="POST">
                 <label for="user_input" class="form-label body-text">Answer:</label>    
                 <input type="text" name="user_input" autofocus="autofocus" id="user_input" required>
@@ -21,6 +23,7 @@
                 {% endfor %}
             {% endif %} {% endwith %}
 
+            <!--The score increments each time the user answers a riddle correctly-->
             <div class = "body-text" id="score">
                 Score: {{ score }}
             </div>
