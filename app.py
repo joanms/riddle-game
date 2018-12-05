@@ -90,6 +90,7 @@ def play(username):
     riddle_number = session['riddle_number'], score = session['score'])
     
     
+# When the game is over, write the user's score to the leaderboard
 @app.route('/write_to_leaderboard')
 def write_to_leaderboard():
     if session:
@@ -98,6 +99,7 @@ def write_to_leaderboard():
                 leaderboard.write('\n{}:{}'.format(str(session['user']), str(session['score'])))
 
 
+# Sort the leaderboard in descending order of scores
 # This function is by my mentor, Chris Zielinski
 def get_leaders():
     with open('data/leaders.txt') as leaders:
@@ -107,7 +109,7 @@ def get_leaders():
             tupe = (leader.split(':')[0].strip(), int(leader.split(':')[1].strip()))
             sorted_leaders.append(tupe)
             
-        # Sort leaders on the 2nd element of the tuple, reverse the sort, then return the top 10
+        # Sort leaders on the second element of the tuple, reverse the sort, then return the top 10
         return sorted(sorted_leaders, key=lambda x: x[1])[::-1][:10]
 
 
