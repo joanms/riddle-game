@@ -99,7 +99,7 @@ def write_to_leaderboard():
                 leaderboard.write('\n{}:{}'.format(str(session['user']), str(session['score'])))
 
 
-# Sort the leaderboard in descending order of scores
+# Sorts the leaderboard in descending order of scores and returns the top 10
 # This function is by my mentor, Chris Zielinski
 def get_leaders():
     with open('data/leaders.txt') as leaders:
@@ -113,6 +113,7 @@ def get_leaders():
         return sorted(sorted_leaders, key=lambda x: x[1])[::-1][:10]
 
 
+# Displays the leaderboard
 @app.route('/leaderboard')
 def leaderboard():
     leaders = get_leaders()
@@ -126,6 +127,8 @@ def leaderboard():
     else:
         return render_template('leaderboard.html', leaders=leaders)
     
+# Runs the application
 if __name__ == '__main__':
     app.run(host=os.environ.get('IP'),
-            port=int(os.environ.get('PORT')))
+            port=int(os.environ.get('PORT')),
+            debug=False)
