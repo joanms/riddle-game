@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Lobster|Oswald:400,700');
+@import url('https://fonts.googleapis.com/css?family=Oleo+Script|Oswald:400,700');
 
 /*Colours
 Black
@@ -54,13 +54,13 @@ body {
 }
 
 h1 {
-    font-family: "Lobster", cursive;
+    font-family: "Oleo Script", cursive;
     font-size: 100px;
     text-align: center;
 }
 
 h2 {
-    font-family: "Lobster", cursive;
+    font-family: "Oleo Script", cursive;
     font-weight: 700;
     font-size: 40px;
     text-align: center;
